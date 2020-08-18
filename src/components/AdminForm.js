@@ -34,7 +34,7 @@ const AdminForm = ({
                     onChange={event => handleChange(event, key)}
                     value={project.notes}
                     name="notes" 
-                    rows="5" 
+                    rows="10" 
                     placeholder="Notes" 
                 />
             </form>

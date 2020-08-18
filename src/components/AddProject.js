@@ -49,8 +49,8 @@ class AddProject extends Component {
                             onChange={ this.handleChange } 
                             value={ this.state.notes } 
                             name="notes" 
-                            rows="5" 
-                            placeholder="Notes" 
+                            rows="10" 
+                            placeholder="Notes (separator: .)" 
                         />
                         <button type="submit">+ Add project</button>
                     </form>

@@ -22,7 +22,7 @@ class Admin extends Component {
                         )
                 }
                 <footer>
-                    <button onClick={loadExample}>Load</button>
+                    <h1>© Simon Duperray</h1>
                 </footer>
             </div>
         )

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Card = ({ details }) => {
     const notes = details.notes
-        .split('.')
+        .split('\n')
         .map(item => <li key={item}>{item}</li>)
     return (
         <div className="card">

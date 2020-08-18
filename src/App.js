@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 // CSS
 import './App.css'
-import projects from './projects'
 
 import Header from './components/Header'
 import Admin from './components/Admin'
@@ -45,7 +44,7 @@ class App extends Component {
     this.setState({ projects })
   }
 
-  loadExample = () => this.setState({ projects })
+  // loadExample = () => this.setState({ projects })
 
   render () {
     const cards = Object.keys(this.state.projects)
@@ -58,7 +57,7 @@ class App extends Component {
         </div>
         <Admin 
           projects={this.state.projects}
-          loadExample={this.loadExample}
+          // loadExample={this.loadExample}
           updateProject={this.updateProject}
           addProject={this.addProject}
           deleteProject={this.deleteProject}
