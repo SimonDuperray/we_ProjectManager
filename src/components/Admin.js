@@ -21,9 +21,9 @@ class Admin extends Component {
                             />
                         )
                 }
-                <footer>
+                {/* <footer>
                     <h1>© Simon Duperray</h1>
-                </footer>
+                </footer> */}
             </div>
         )
     }

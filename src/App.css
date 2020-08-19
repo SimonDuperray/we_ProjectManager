@@ -60,7 +60,6 @@ button:disabled {
 }
 
 .box > * {
-	/*border: 5px solid red;*/
 	flex: 1 1 100vw;
 }
 
@@ -178,6 +177,14 @@ footer {
 .ajouter-recette > * {
 	border: 5px solid #F44336;
 	border-width: 1px 1px 5px 1px;
+}
+
+#toggleShowBtn {
+	margin-left: 30%;
+	margin-right: 30%;
+	width: auto;
+	margin-bottom: 20px;
+	border: 1px solid black;
 }
 
 /* ----------------------------

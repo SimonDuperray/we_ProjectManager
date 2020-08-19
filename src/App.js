@@ -13,6 +13,7 @@ class App extends Component {
   state = {
     pseudo: this.props.match.params.pseudo,
     nState: false,
+    toggleBtn: 'Show',
     projects : {}
   }
 
@@ -55,11 +56,17 @@ class App extends Component {
           { cards }
         </div>  
         <button
+          id="toggleShowBtn"
           onClick={() => {
+            if(this.state.toggleBtn==="Show") {
+              this.state.toggleBtn = "Hide"
+            } else {
+              this.state.toggleBtn = "Show"
+            }
             this.setState({nState: !this.state.nState})
           }}
         >
-          Toggle Admin Part
+          { this.state.toggleBtn } Admin Part
         </button>
         {
           this.state.nState ? (
@@ -70,17 +77,12 @@ class App extends Component {
               deleteProject={this.deleteProject}
             />
           ) : (
-            <p
-              style={{
-                'textAlign': 'center',
-                'color': 'red',
-                'fontWeight': 'bold',
-              }}
-            >
-              Click on the toggle button to display admin forms
-            </p>
+            <div />
           )
         }
+        <footer>
+            <h1>© Simon Duperray</h1>
+        </footer>
       </div>
     )
   }
