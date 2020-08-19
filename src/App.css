@@ -3,6 +3,8 @@ progress,sub,sup{vertical-align:baseline}button,hr,input{overflow:visible}[type=
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
 
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@600&display=swap');
+
 h1, h2, h3, h4, h5, h6 {
 	font-weight: lighter;
 }
@@ -21,7 +23,7 @@ h1, h2, h3, h4, h5, h6 {
 	width: 100%;
 }
 .connexion > h1{
-	font-family: 'Indie Flower', cursive;
+	font-family: 'Baloo Tamma 2', cursive;
 	text-align: center;
 	color: #1d1d1d;
 }
@@ -55,7 +57,6 @@ button:disabled {
 	flex-wrap: wrap;
 	font-family: 'Roboto', sans-serif;
 	color: #212121;
-	/*border: 5px solid purple;*/
 }
 
 .box > * {
@@ -84,28 +85,17 @@ header h1 {
 
 .card {
 	flex: 0 1 500px;
-	min-height: 500px;
-	/*border: 5px solid lightblue;*/
+	/* min-height: 500px; */
+	padding: 10px 0;
 	margin: 20px 15px;
 	box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
 	border-radius: 2px;
 }
 
-.image {
-	width: 100%;
-	height: 150px;
-	overflow: hidden;
-	border-radius: 2px 2px 0 0;
-}
-.image img {
-	width: 100%;
-	transform: translateY(-25%);
-}
-
 .recette {
 	padding: 0 20px;
 }
-.recette .liste-ingredients {
+.recette .description {
 	display: flex;
 	flex-wrap: wrap;
 	width: 100%;
@@ -114,14 +104,14 @@ header h1 {
 	transform: scale(1.12);
 	box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
 }
-.recette .liste-ingredients li {
+.recette .description li {
 	margin-left: 20px;
 	margin-right: 5px;
 }
-.recette ol {
+.recette ul {
 	padding: 10px 0px 10px 20px;
 }
-.recette ol li {
+.recette ul li {
 	margin-bottom: 10px;
 }
 
@@ -147,7 +137,7 @@ footer {
 	display: flex;
 	justify-content: space-around;
 	background-color: #eceff1;
-	padding: 0 0 10px 0;
+	font-size: 12px;
 	box-shadow: 0px -3px 5px rgba(0,0,0,0.2);
 	width: 100%;
 }
@@ -168,21 +158,6 @@ footer {
 /* ----------------------------
 	Admin
 ---------------------------- */
-
-/*.admin {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	border: 5px solid red;
-}
-
-.admin > * {
-	flex: 0 1 500px;
-	border: 5px solid lightblue;
-	margin: 20px 15px;
-	box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
-	border-radius: 2px;
-}*/
 
 .admin-form > * {
 	width: 100%;
@@ -221,13 +196,3 @@ footer {
 	
 	margin: 0 auto 20px auto;
 }
-
-.facebook-button {
-	background-color: #3b5998;
-}
-
-.twitter-button {
-	background-color: #00aced;
-}
-
-

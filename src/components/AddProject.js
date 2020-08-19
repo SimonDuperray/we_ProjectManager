@@ -25,36 +25,34 @@ class AddProject extends Component {
 
     render() {
         return (
-            <div>
-                <div className="card">
-                    <form 
-                        className="admin-form ajouter-recette" 
-                        onSubmit={ this.handleSubmit }
-                    >
-                        <input 
-                            onChange={ this.handleChange } 
-                            value={ this.state.nom } 
-                            name="nom" 
-                            type="text" 
-                            placeholder="ProjectName" 
-                        />
-                        <textarea 
-                            onChange={ this.handleChange } 
-                            value={ this.state.description } 
-                            name="description" 
-                            rows="10" 
-                            placeholder="Description"
-                        />
-                        <textarea 
-                            onChange={ this.handleChange } 
-                            value={ this.state.notes } 
-                            name="notes" 
-                            rows="10" 
-                            placeholder="Notes (separator: .)" 
-                        />
-                        <button type="submit">+ Add project</button>
-                    </form>
-                </div>
+            <div className="card">
+                <form 
+                    className="admin-form ajouter-recette" 
+                    onSubmit={ this.handleSubmit }
+                >
+                    <input 
+                        onChange={ this.handleChange } 
+                        value={ this.state.nom } 
+                        name="nom" 
+                        type="text" 
+                        placeholder="ProjectName" 
+                    />
+                    <textarea 
+                        onChange={ this.handleChange } 
+                        value={ this.state.description } 
+                        name="description" 
+                        rows="10" 
+                        placeholder="Description"
+                    />
+                    <textarea 
+                        onChange={ this.handleChange } 
+                        value={ this.state.notes } 
+                        name="notes" 
+                        rows="10" 
+                        placeholder="Notes" 
+                    />
+                    <button type="submit">+ Add project</button>
+                </form>
             </div>
         )
     }

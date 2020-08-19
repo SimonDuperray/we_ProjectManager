@@ -5,7 +5,7 @@ import AdminForm from './AdminForm'
 
 class Admin extends Component {
     render() {
-        const { projects, addProject, loadExample, updateProject, deleteProject } = this.props
+        const { projects, addProject, updateProject, deleteProject } = this.props
         return (
             <div className="cards">
                 <AddProject addProject={addProject} />

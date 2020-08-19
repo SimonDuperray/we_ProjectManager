@@ -8,10 +8,10 @@ const Card = ({ details }) => {
         <div className="card">
             <div className="recette">
                 <h2>{details.nom}</h2>
-                <div className="liste-ingredients">
+                <div className="description">
                     <h4>{ details.description }</h4>
                 </div>
-                <ul className="liste-instructions">
+                <ul>
                     { notes }
                 </ul>
             </div>

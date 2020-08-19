@@ -12,6 +12,7 @@ import base from './base'
 class App extends Component {
   state = {
     pseudo: this.props.match.params.pseudo,
+    nState: false,
     projects : {}
   }
 
@@ -44,8 +45,6 @@ class App extends Component {
     this.setState({ projects })
   }
 
-  // loadExample = () => this.setState({ projects })
-
   render () {
     const cards = Object.keys(this.state.projects)
       .map(key => <Card key={key} details={this.state.projects[key]}/>)
@@ -54,14 +53,34 @@ class App extends Component {
         <Header pseudo={this.state.pseudo}/>
         <div className='cards'>
           { cards }
-        </div>
-        <Admin 
-          projects={this.state.projects}
-          // loadExample={this.loadExample}
-          updateProject={this.updateProject}
-          addProject={this.addProject}
-          deleteProject={this.deleteProject}
-        />
+        </div>  
+        <button
+          onClick={() => {
+            this.setState({nState: !this.state.nState})
+          }}
+        >
+          Toggle Admin Part
+        </button>
+        {
+          this.state.nState ? (
+            <Admin 
+              projects={this.state.projects}
+              updateProject={this.updateProject}
+              addProject={this.addProject}
+              deleteProject={this.deleteProject}
+            />
+          ) : (
+            <p
+              style={{
+                'textAlign': 'center',
+                'color': 'red',
+                'fontWeight': 'bold',
+              }}
+            >
+              Click on the toggle button to display admin forms
+            </p>
+          )
+        }
       </div>
     )
   }
