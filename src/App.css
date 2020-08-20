@@ -70,10 +70,18 @@ header {
 	box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
 	margin-bottom: 5px;
 	padding: 10px 20px;
+	font-family: "Baloo Tamma 2";
 }
 header h1 {
 	margin: 0;
 	text-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+}
+header #fireLink {
+	color: white;
+	text-decoration: none;
+}
+header #fireLink:hover {
+	text-decoration: underline;
 }
 
 .cards {
@@ -185,6 +193,7 @@ footer {
 	width: auto;
 	margin-bottom: 20px;
 	border: 1px solid black;
+	font-family: 'Roboto', sans-serif;
 }
 
 /* ----------------------------

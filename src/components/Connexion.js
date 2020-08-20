@@ -27,6 +27,7 @@ class Connexion extends React.Component {
         <form className='connexion' onSubmit={this.goToApp} >
           <h1>Project Manager</h1>
           <input
+            id="askDevName"
             type='text'
             value={this.state.pseudo}
             onChange={this.handleChange}
@@ -34,7 +35,7 @@ class Connexion extends React.Component {
             pattern='[A-Za-z-]{1,}'
             required />
           <button type='submit'>GO</button>
-          <p>Pas de caractères spéciaux.</p>
+          <p style={{fontSize: '11px', textAlign: 'center'}}>Pas de caractères spéciaux.</p>
         </form>
       </div>
     )
