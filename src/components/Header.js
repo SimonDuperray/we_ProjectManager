@@ -3,13 +3,13 @@ import React from 'react'
 class Header extends React.Component {
     state = {
         nStateHeader: false,
-        signButton: '+'
+        signButton: '+',
     }
     toggleHeaderInfo = () => {
         if(this.state.signButton==="+") {
-            this.state.signButton = "-"
+            this.state.signButton="-"
         } else {
-            this.state.signButton = "+"
+            this.state.signButton="+"
         }
         this.setState({ nStateHeader: !this.state.nStateHeader })
     }
@@ -42,7 +42,7 @@ class Header extends React.Component {
                                 </button>
                             </div>
                             <h3 id="cptProj">{cpt} projets en cours!</h3>
-                            <a id="fireLink" target="_blank" href="https://console.firebase.google.com/project/projectmanager-67f9c/database/projectmanager-67f9c/data">RealTime DataBase - Firebase</a>
+                            <a id="fireLink" target="_blank" href="https://console.firebase.google.com/project/projectmanager-67f9c/database/projectmanager-67f9c/data">RealTime DataBase - Firebase ↗</a>
                         </div>
                     )
                 }
