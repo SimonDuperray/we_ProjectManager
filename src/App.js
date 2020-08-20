@@ -12,6 +12,7 @@ import base from './base'
 class App extends Component {
   state = {
     pseudo: this.props.match.params.pseudo,
+    cpt: 0,
     nState: false,
     toggleBtn: 'Show',
     projects : {}
@@ -49,9 +50,14 @@ class App extends Component {
   render () {
     const cards = Object.keys(this.state.projects)
       .map(key => <Card key={key} details={this.state.projects[key]}/>)
+    // update cpt
+    this.state.cpt = cards.length
     return (
       <div className='box'>
-        <Header pseudo={this.state.pseudo}/>
+        <Header 
+          pseudo={this.state.pseudo} 
+          cpt={this.state.cpt}
+        />
         <div className='cards'>
           { cards }
         </div>  
