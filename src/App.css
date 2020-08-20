@@ -83,6 +83,19 @@ header #fireLink {
 header #fireLink:hover {
 	text-decoration: underline;
 }
+header .rows .row {
+	display: inline-block;
+}
+header #revealHeader {
+	border: 1px solid white;
+	/* padding: 0 5px; */
+	padding: 10px;
+	margin-left: 10px;
+}
+header #revealHeader:hover {
+	border-color: grey;
+	cursor: pointer;
+}
 
 .cards {
 	display: flex;
