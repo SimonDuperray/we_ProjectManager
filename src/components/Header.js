@@ -14,7 +14,7 @@ class Header extends React.Component {
         this.setState({ nStateHeader: !this.state.nStateHeader })
     }
     render() {
-        const { pseudo, cpt } = this.props
+        const { pseudo, cpt } = this.props 
         return(
             <header>
                 {
@@ -41,8 +41,10 @@ class Header extends React.Component {
                                     {this.state.signButton}
                                 </button>
                             </div>
-                            <h3 id="cptProj">{cpt} projets en cours!</h3>
-                            <a id="fireLink" target="_blank" href="https://console.firebase.google.com/project/projectmanager-67f9c/database/projectmanager-67f9c/data">RealTime DataBase - Firebase ↗</a>
+                            <div id="moreInfoHeader">
+                                <h3 id="cptProj">{cpt} projets en cours!</h3>
+                                <a id="fireLink" target="_blank" href="https://console.firebase.google.com/project/projectmanager-67f9c/database/projectmanager-67f9c/data">RealTime DataBase - Firebase ↗</a>
+                            </div>
                         </div>
                     )
                 }

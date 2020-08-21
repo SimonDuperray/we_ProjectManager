@@ -95,6 +95,9 @@ header #revealHeader:hover {
 	border-color: grey;
 	cursor: pointer;
 }
+header #moreInfoHeader {
+	border-top: 2px solid white;
+}
 
 .cards {
 	display: flex;
@@ -206,6 +209,20 @@ footer {
 	margin-bottom: 20px;
 	border: 1px solid black;
 	font-family: 'Roboto', sans-serif;
+}
+#titleMarkdownHelp {
+	padding: 0 20px;
+	font-family: "Baloo Tamma 2", sans-serif;
+	text-align: center;
+	border-bottom: 1px solid black;
+	margin: 0 20px;
+}
+#commandsMarkdown {
+	padding: 0 50px;
+}
+#commandsMarkdown li {
+	display: inline;
+	padding: 20px;
 }
 
 /* ----------------------------
