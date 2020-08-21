@@ -9,6 +9,7 @@ class HelpMarkdown extends Component {
                     <li>* <b>bold</b></li>
                     <li>$ <i>italic</i></li>
                     <li>_ <u>underline</u></li>
+                    <li>ou double clique sur une note</li>
                 </ul>
             </div>
         )

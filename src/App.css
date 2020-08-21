@@ -97,6 +97,7 @@ header #revealHeader:hover {
 }
 header #moreInfoHeader {
 	border-top: 2px solid white;
+	margin: 0 100px;
 }
 
 .cards {

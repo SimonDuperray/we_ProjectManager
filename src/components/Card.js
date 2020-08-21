@@ -1,19 +1,23 @@
 import React, { Component } from 'react'
 
 class Card extends Component {
-    state = {
-        checkboxState: false,
+    checkBold = () => {
+        let notesString = this.props.details.notes
+        return notesString
     }
     render() {
         const { details } = this.props
         const notes = details.notes
-        .split('\n')
-        .map(item => 
-            <div className="rows">
-                <li className="row" key={item}>{item}</li>
-                <input className="row" type="checkbox"/>
-            </div>
-        )
+            .split('\n')
+            .map(item => 
+                <li 
+                    className="row" 
+                    key={item}
+                    // onDoubleClick={() => this.checkBold()}
+                >
+                    {item}
+                </li>
+            )
         return (
             <div className="card">
                 <div className="recette">

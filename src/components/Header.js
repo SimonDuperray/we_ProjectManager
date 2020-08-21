@@ -19,7 +19,7 @@ class Header extends Component {
             <header>
                 {
                     !this.state.nStateHeader ? (
-                        <div className="rows">
+                        <div id="hiddenHeader" className="rows">
                             <h1 className="row">{pseudo}'s Project Manager</h1>
                             <button 
                                 className="row" 
@@ -31,7 +31,7 @@ class Header extends Component {
                         </div>
                     ) : (
                         <div>
-                            <div className="rows">
+                            <div id="showedHeader" className="rows">
                                 <h1 className="row">{pseudo}'s Project Manager</h1>
                                 <button 
                                     className="row" 
