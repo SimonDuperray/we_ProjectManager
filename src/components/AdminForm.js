@@ -23,6 +23,13 @@ const AdminForm = ({
                     type="text" 
                     placeholder="ProjectName" 
                 />
+                <input 
+                    onChange={event => handleChange(event, key) }
+                    value= { project.command }
+                    name="command"
+                    type="text"
+                    placeholder="Batch Command"
+                />
                 <textarea 
                     onChange={e => handleChange(e, key)}
                     value={project.description}

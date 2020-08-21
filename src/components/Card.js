@@ -22,6 +22,19 @@ class Card extends Component {
             <div className="card">
                 <div className="recette">
                     <h2>{details.nom}</h2>
+                    {
+                        details.command ? (
+                            <p className="batchCommand">
+                                BatchCommand:  
+                                <span 
+                                    style={{fontWeight: 'bold', marginLeft: '5px'}}>
+                                    {details.command}
+                                </span>
+                            </p>
+                        ) : (
+                            <div />
+                        )
+                    }
                     <div className="description">
                         <h4>{ details.description }</h4>
                     </div>

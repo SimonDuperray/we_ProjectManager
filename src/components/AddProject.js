@@ -4,7 +4,8 @@ class AddProject extends Component {
     state = {
         nom: '',
         description: '',
-        notes: ''
+        notes: '',
+        command: ''
     }
 
     handleChange = event => {
@@ -36,6 +37,13 @@ class AddProject extends Component {
                         name="nom" 
                         type="text" 
                         placeholder="ProjectName" 
+                    />
+                    <input 
+                        onChange={ this.handleChange }
+                        value= { this.state.command }
+                        name="command"
+                        type="text"
+                        placeholder="Batch Command"
                     />
                     <textarea 
                         onChange={ this.handleChange } 
