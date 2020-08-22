@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import adminlist from '../adminlist'
+
 class Header extends Component {
     state = {
         nStateHeader: false,
@@ -11,16 +13,22 @@ class Header extends Component {
         } else {
             this.state.signButton="+"
         }
-        this.setState({ nStateHeader: !this.state.nStateHeader })
+        this.setState({ nStateHeader: !this.state.nStateHeader })    
     }
     render() {
-        const { pseudo, cpt } = this.props 
+        const { pseudo, cpt } = this.props  
         return(
             <header>
                 {
                     !this.state.nStateHeader ? (
                         <div id="hiddenHeader" className="rows">
-                            <h1 className="row">{pseudo}'s Project Manager</h1>
+                            {
+                                adminlist.includes(pseudo) ? (
+                                    <h1 className="row">{pseudo}'s Project Manager *</h1>
+                                ) : (
+                                    <h1 className="row">{pseudo}'s Project Manager</h1>
+                                )
+                            }
                             <button 
                                 className="row" 
                                 id="revealHeader"
@@ -32,7 +40,13 @@ class Header extends Component {
                     ) : (
                         <div>
                             <div id="showedHeader" className="rows">
-                                <h1 className="row">{pseudo}'s Project Manager</h1>
+                                {
+                                    adminlist.includes(pseudo) ? (
+                                        <h1 className="row">{pseudo}'s Project Manager *</h1>
+                                    ) : (
+                                        <h1 className="row">{pseudo}'s Project Manager</h1>
+                                    )
+                                }
                                 <button 
                                     className="row" 
                                     id="revealHeader"
@@ -43,7 +57,20 @@ class Header extends Component {
                             </div>
                             <div id="moreInfoHeader">
                                 <h3 id="cptProj">{cpt} projets en cours!</h3>
-                                <a id="fireLink" target="_blank" href="https://console.firebase.google.com/project/projectmanager-67f9c/database/projectmanager-67f9c/data">RealTime DataBase - Firebase ↗</a>
+                                {
+                                    adminlist.includes(pseudo) ? (
+                                        <a 
+                                            onClick={ () => this.toggleHeaderInfo() }
+                                            id="fireLink" 
+                                            target="_blank" 
+                                            href="https://console.firebase.google.com/project/projectmanager-67f9c/database/projectmanager-67f9c/data"
+                                        >
+                                            RealTime DataBase - Firebase ↗
+                                        </a>
+                                    ) : (
+                                        <div />
+                                    )
+                                }
                             </div>
                         </div>
                     )

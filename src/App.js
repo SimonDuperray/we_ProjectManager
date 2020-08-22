@@ -31,7 +31,8 @@ class App extends Component {
 
   addProject = project => {
     const projects = { ...this.state.projects }
-    projects[`project-${Date.now()}`] = project
+    let d = new Date()
+    projects[`project-${Date.now()}--${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`] = project
     this.setState({ projects })
   }
 
@@ -45,6 +46,15 @@ class App extends Component {
     const projects = {  ...this.state.projects}
     projects[key] = null
     this.setState({ projects })
+  }
+
+  toggleAdminPart = () => {
+    if(this.state.toggleBtn==="Show") {
+      this.state.toggleBtn = "Hide"
+    } else {
+      this.state.toggleBtn = "Show"
+    }
+    this.setState({nState: !this.state.nState})
   }
 
   render () {
@@ -63,25 +73,26 @@ class App extends Component {
         </div>  
         <button
           id="toggleShowBtn"
-          onClick={() => {
-            if(this.state.toggleBtn==="Show") {
-              this.state.toggleBtn = "Hide"
-            } else {
-              this.state.toggleBtn = "Show"
-            }
-            this.setState({nState: !this.state.nState})
-          }}
+          onClick={() => this.toggleAdminPart()}
         >
           { this.state.toggleBtn } Admin Part
         </button>
         {
           this.state.nState ? (
-            <Admin 
-              projects={this.state.projects}
-              updateProject={this.updateProject}
-              addProject={this.addProject}
-              deleteProject={this.deleteProject}
-            />
+            <div>
+              <Admin 
+                projects={this.state.projects}
+                updateProject={this.updateProject}
+                addProject={this.addProject}
+                deleteProject={this.deleteProject}
+              />
+              <button
+                id="toggleShowBtn"
+                onClick={() => this.toggleAdminPart()}
+              >
+                { this.state.toggleBtn } Admin Part
+              </button>
+            </div>
           ) : (
             <div />
           )
