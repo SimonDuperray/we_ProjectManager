@@ -19,22 +19,35 @@ class Header extends Component {
     render() {
         const { pseudo, cpt } = this.props  
         const pm = "\'s Project Manager"
-        const pma = "\'s Project Manager"
+        const pma = "\'s Project Manager *"
         return(
-            <div>
-                <div>
-                    <WelcomeHeader />
-                </div>
-                <header>
-                    {
-                        !this.state.nStateHeader ? (
-                            <div id="hiddenHeader" className="rows">
+            <header>
+                {
+                    !this.state.nStateHeader ? (
+                        <div id="hiddenHeader" className="rows">
+                            {
+                                adminlist.includes(pseudo) ? (
+                                    <WelcomeHeader pseudo={pseudo} welcome={pma} />
+                                ) : (
+                                    <WelcomeHeader pseudo={pseudo} welcome={pm} />
+                                )
+                            }
+                            <button 
+                                className="row" 
+                                id="revealHeader"
+                                onClick={() => this.toggleHeaderInfo()}
+                            >
+                                {this.state.signButton}
+                            </button>
+                        </div>
+                    ) : (
+                        <div>
+                            <div id="showedHeader" className="rows">
                                 {
-                                    // créer component et passer pm/pma en props
                                     adminlist.includes(pseudo) ? (
-                                        <h1 className="row">{pseudo}{pma}</h1>
+                                        <WelcomeHeader pseudo={pseudo} welcome={pma} />
                                     ) : (
-                                        <h1 className="row">{pseudo}{pm}</h1>
+                                        <WelcomeHeader pseudo={pseudo} welcome={pm} />
                                     )
                                 }
                                 <button 
@@ -45,46 +58,27 @@ class Header extends Component {
                                     {this.state.signButton}
                                 </button>
                             </div>
-                        ) : (
-                            <div>
-                                <div id="showedHeader" className="rows">
-                                    {
-                                        adminlist.includes(pseudo) ? (
-                                            <h1 className="row">{pseudo}'s Project Manager *</h1>
-                                        ) : (
-                                            <h1 className="row">{pseudo}'s Project Manager</h1>
-                                        )
-                                    }
-                                    <button 
-                                        className="row" 
-                                        id="revealHeader"
-                                        onClick={() => this.toggleHeaderInfo()}
-                                    >
-                                        {this.state.signButton}
-                                    </button>
-                                </div>
-                                <div id="moreInfoHeader">
-                                    <h3 id="cptProj">{cpt} projets en cours!</h3>
-                                    {
-                                        adminlist.includes(pseudo) ? (
-                                            <a 
-                                                onClick={ () => this.toggleHeaderInfo() }
-                                                id="fireLink" 
-                                                target="_blank" 
-                                                href="https://console.firebase.google.com/project/projectmanager-67f9c/database/projectmanager-67f9c/data"
-                                            >
-                                                RealTime DataBase - Firebase ↗
-                                            </a>
-                                        ) : (
-                                            <div />
-                                        )
-                                    }
-                                </div>
+                            <div id="moreInfoHeader">
+                                <h3 id="cptProj">{cpt} projets en cours!</h3>
+                                {
+                                    adminlist.includes(pseudo) ? (
+                                        <a 
+                                            onClick={ () => this.toggleHeaderInfo() }
+                                            id="fireLink" 
+                                            target="_blank" 
+                                            href="https://console.firebase.google.com/project/projectmanager-67f9c/database/projectmanager-67f9c/data"
+                                        >
+                                            RealTime DataBase - Firebase ↗
+                                        </a>
+                                    ) : (
+                                        <div />
+                                    )
+                                }
                             </div>
-                        )
-                    }
-                </header>
-            </div>
+                        </div>
+                    )
+                }
+            </header>
         )
     }
 }
