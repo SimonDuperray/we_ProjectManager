@@ -6,6 +6,7 @@ import Header from './components/Header'
 import Admin from './components/Admin'
 import Card from './components/Card'
 import BienvenueAdmin from './components/BienvenueAdmin'
+import TodoList from './components/TodoList'
 
 // Firebase
 import base from './base'
@@ -17,7 +18,8 @@ class App extends Component {
     cpt: 0,
     nState: false,
     toggleBtn: 'Show',
-    projects : {}
+    projects : {},
+    toggleDisplayTDL: false
   }
 
   componentDidMount() {
@@ -59,11 +61,16 @@ class App extends Component {
     this.setState({nState: !this.state.nState})
   }
 
+  toggleTDLPart = () => {
+    this.setState({ toggleDisplayTDL: !this.state.toggleDisplayTDL })
+  }
+
   render () {
     const cards = Object.keys(this.state.projects)
       .map(key => <Card key={key} details={this.state.projects[key]}/>)
     // update cpt
     this.state.cpt = cards.length
+  
     return (
       <div className='box'>
         <Header 
@@ -77,11 +84,27 @@ class App extends Component {
             <div />
           )
         }
+
+        <button
+          class="toggleButton"
+          onClick={() => this.toggleTDLPart()}
+        >
+          Toggle TDL
+        </button>
+
+        {
+          this.state.toggleDisplayTDL ? (
+            <TodoList />
+          ) : (
+            <div />
+          )
+        }
+
         <div className='cards'>
           { cards }
         </div>  
         <button
-          id="toggleShowBtn"
+          class="toggleButton"
           onClick={() => this.toggleAdminPart()}
         >
           { this.state.toggleBtn } Admin Part
@@ -106,6 +129,7 @@ class App extends Component {
             <div />
           )
         }
+                
         <footer>
             <h1>© Simon Duperray</h1>
         </footer>

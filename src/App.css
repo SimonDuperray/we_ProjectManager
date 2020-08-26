@@ -201,12 +201,12 @@ footer {
 	background: #69F0AE;
 }
 
-.ajouter-recette > * {
+.ajouter-recette > * 	{
 	border: 5px solid #F44336;
 	border-width: 1px 1px 5px 1px;
 }
 
-#toggleShowBtn {
+.toggleButton {
 	margin-left: 30%;
 	margin-right: 30%;
 	width: auto;
