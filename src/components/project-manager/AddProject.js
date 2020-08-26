@@ -3,9 +3,10 @@ import React, { Component } from 'react'
 class AddProject extends Component {
     state = {
         nom: '',
+        categories: '',
+        command: '',
         description: '',
         notes: '',
-        command: ''
     }
 
     handleChange = event => {
@@ -16,6 +17,7 @@ class AddProject extends Component {
     handleSubmit = event => {
         event.preventDefault()
         const project = { ...this.state }
+        // check data
         if(project.nom) {
             if(project.description) {
                 this.props.addProject(project)
@@ -46,44 +48,13 @@ class AddProject extends Component {
                         type="text" 
                         placeholder="ProjectName" 
                     />
-                    <div className="rows categories">
-                        <div className="row">
-                            <input 
-                                type="checkbox" 
-                                id="ia" 
-                                name="ia"
-                            />
-                            &nbsp;
-                            <label for="ia">IA</label>
-                        </div>
-                        <div className="row">
-                            <input 
-                                type="checkbox" 
-                                id="AppMobile" 
-                                name="AppMobile"
-                            />
-                            &nbsp;
-                            <label for="AppMobile">AppMobile</label>
-                        </div>
-                        <div className="row">
-                            <input 
-                                type="checkbox" 
-                                id="Other" 
-                                name="Other"
-                            />
-                            &nbsp;
-                            <label for="Other">Other</label>
-                        </div>
-                        <div className="row">
-                            <input 
-                                type="checkbox" 
-                                id="WebSiteApp" 
-                                name="WebSiteApp"
-                            />
-                            &nbsp;
-                            <label for="WebSiteApp">WebSiteApp</label>
-                        </div>
-                    </div>
+                    <input 
+                        onChange={ this.handleChange }
+                        value={ this.state.categories }
+                        name="categories"
+                        type="text"
+                        placeholder="Categories"
+                    />
                     <input 
                         onChange={ this.handleChange }
                         value= { this.state.command }
