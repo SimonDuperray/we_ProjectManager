@@ -1,8 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+
 import './index.css'
+
 import App from './App'
-import Connexion from './components/Connexion'
+import Connexion from './components/project-manager/Connexion'
 import NotFound from './components/NotFound'
 import * as serviceWorker from './serviceWorker'
 

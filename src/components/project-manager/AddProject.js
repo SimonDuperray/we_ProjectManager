@@ -46,6 +46,44 @@ class AddProject extends Component {
                         type="text" 
                         placeholder="ProjectName" 
                     />
+                    <div className="rows categories">
+                        <div className="row">
+                            <input 
+                                type="checkbox" 
+                                id="ia" 
+                                name="ia"
+                            />
+                            &nbsp;
+                            <label for="ia">IA</label>
+                        </div>
+                        <div className="row">
+                            <input 
+                                type="checkbox" 
+                                id="AppMobile" 
+                                name="AppMobile"
+                            />
+                            &nbsp;
+                            <label for="AppMobile">AppMobile</label>
+                        </div>
+                        <div className="row">
+                            <input 
+                                type="checkbox" 
+                                id="Other" 
+                                name="Other"
+                            />
+                            &nbsp;
+                            <label for="Other">Other</label>
+                        </div>
+                        <div className="row">
+                            <input 
+                                type="checkbox" 
+                                id="WebSiteApp" 
+                                name="WebSiteApp"
+                            />
+                            &nbsp;
+                            <label for="WebSiteApp">WebSiteApp</label>
+                        </div>
+                    </div>
                     <input 
                         onChange={ this.handleChange }
                         value= { this.state.command }

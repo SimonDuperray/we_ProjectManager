@@ -214,6 +214,16 @@ footer {
 	border: 1px solid black;
 	font-family: 'Roboto', sans-serif;
 }
+
+.categories {
+	padding-left: 25px;
+	padding-right: 25px;
+	text-align: center;
+	display: flex;
+	justify-content: space-between;
+	color: lightslategrey;
+}
+
 #titleMarkdownHelp {
 	padding: 0 20px;
 	font-family: "Baloo Tamma 2", sans-serif;

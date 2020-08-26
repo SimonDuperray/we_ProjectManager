@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class TodoList extends Component {
     render() {
         return (
-            <h1>Test project manager component</h1>
+            <h3 style={{textAlign: 'center',border:'2px solid black'}}>Test project manager component</h3>
         )
     }
 }

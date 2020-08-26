@@ -2,24 +2,25 @@ import React, { Component } from 'react'
 // CSS
 import './App.css'
 
-import Header from './components/Header'
-import Admin from './components/Admin'
-import Card from './components/Card'
-import BienvenueAdmin from './components/BienvenueAdmin'
-import TodoList from './components/TodoList'
+import Header from './components/project-manager/Header'
+import Admin from './components/project-manager/Admin'
+import Card from './components/project-manager/Card'
+import BienvenueAdmin from './components/project-manager/BienvenueAdmin'
+import TodoList from './components/todo-list/TodoList'
 
 // Firebase
 import base from './base'
-import adminlist from './adminlist'
+import adminlist from './components/adminlist'
 
 class App extends Component {
   state = {
     pseudo: this.props.match.params.pseudo,
     cpt: 0,
     nState: false,
-    toggleBtn: 'Show',
+    toggleAdminPartInner: 'Show',
     projects : {},
-    toggleDisplayTDL: false
+    toggleDisplayTDL: false,
+    toggleDisplayTDLInner: 'Show'
   }
 
   componentDidMount() {
@@ -53,15 +54,20 @@ class App extends Component {
   }
 
   toggleAdminPart = () => {
-    if(this.state.toggleBtn==="Show") {
-      this.state.toggleBtn = "Hide"
+    if(this.state.toggleAdminPartInner==="Show") {
+      this.state.toggleAdminPartInner = "Hide"
     } else {
-      this.state.toggleBtn = "Show"
+      this.state.toggleAdminPartInner = "Show"
     }
     this.setState({nState: !this.state.nState})
   }
 
   toggleTDLPart = () => {
+    if(this.state.toggleDisplayTDLInner==="Show"){
+      this.state.toggleDisplayTDLInner="Hide"
+    } else {
+      this.state.toggleDisplayTDLInner="Show"
+    }
     this.setState({ toggleDisplayTDL: !this.state.toggleDisplayTDL })
   }
 
@@ -89,7 +95,7 @@ class App extends Component {
           class="toggleButton"
           onClick={() => this.toggleTDLPart()}
         >
-          Toggle TDL
+          { this.state.toggleDisplayTDLInner } TodoList
         </button>
 
         {
@@ -107,7 +113,7 @@ class App extends Component {
           class="toggleButton"
           onClick={() => this.toggleAdminPart()}
         >
-          { this.state.toggleBtn } Admin Part
+          { this.state.toggleAdminPartInner } Admin Part
         </button>
         {
           this.state.nState ? (
@@ -122,7 +128,7 @@ class App extends Component {
                 id="toggleShowBtn"
                 onClick={() => this.toggleAdminPart()}
               >
-                { this.state.toggleBtn } Admin Part
+                { this.state.toggleAdminPartInner } Admin Part
               </button>
             </div>
           ) : (

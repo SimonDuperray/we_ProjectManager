@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-import adminlist from '../adminlist'
 import Popup from "reactjs-popup"
+import adminlist from '../adminlist'
 
 class BienvenueAdmin extends Component {
     render() {
