@@ -16,12 +16,20 @@ class AddProject extends Component {
     handleSubmit = event => {
         event.preventDefault()
         const project = { ...this.state }
-        this.props.addProject(project)
-        // Reset form
-        Object.keys(project).forEach(item => {
-            project[item] = ''
-        })
-        this.setState({ ...project })
+        if(project.nom) {
+            if(project.description) {
+                this.props.addProject(project)
+                // Reset form
+                Object.keys(project).forEach(item => {
+                    project[item] = ''
+                })
+                this.setState({ ...project })
+            } else {
+                alert('Donnez une description, même courte à votre nouveau projet!')
+            }
+        } else {
+            alert('Donnez un nom à votre projet!')
+        }
     }
 
     render() {
