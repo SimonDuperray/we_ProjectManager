@@ -26,6 +26,7 @@ const AdminForm = ({
                     placeholder="ProjectName" 
                 />
                 <input 
+                    class="row"
                     onChange={ event => handleChange(event, key) }
                     value={ project.categories }
                     name="categories"

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import categorieslist from '../categorieslist'
+
 class Card extends Component {
     checkBold = () => {
         let notesString = this.props.details.notes
@@ -23,8 +25,30 @@ class Card extends Component {
                 <div className="recette">
                     <h2>{details.nom}</h2>
                     {
+                        categorieslist.includes(details.categories) ? (
+                            <p className="infoCardRight">
+                                Category:
+                                &nbsp;&nbsp;
+                                <span style={{fontWeight: 'bold'}}>
+                                    {
+                                        details.categories
+                                    }
+                                </span>
+                            </p>
+                        ) : (
+                            
+                            <p class="infoCardRight">
+                                Category:
+                                &nbsp;
+                                <span style={{fontWeight: 'bold', textTransform: 'uppercase', textDecoration: 'underline'}}>
+                                    invalid
+                                </span>
+                            </p>
+                        )
+                    }
+                    {
                         details.command ? (
-                            <p className="batchCommand">
+                            <p className="infoCardRight">
                                 BatchCommand:  
                                 <span 
                                     style={{fontWeight: 'bold', marginLeft: '5px'}}>
