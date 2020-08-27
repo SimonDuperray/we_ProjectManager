@@ -71,6 +71,10 @@ class App extends Component {
     this.setState({ toggleDisplayTDL: !this.state.toggleDisplayTDL })
   }
 
+  displayFilters = () => {
+    // alert(this.refs.displayIA.checked)
+  }
+
   render () {
     const cards = Object.keys(this.state.projects)
       .map(key => <Card key={key} details={this.state.projects[key]}/>)
@@ -109,6 +113,64 @@ class App extends Component {
             <div />
           )
         }
+
+        <div className="filtersRenderCards rows">
+          <div className="filterTitle">
+            <h3 id="noMgTitleFilters">Filters</h3>
+          </div>
+          <div className="flexRendering">
+            <div className="row">
+              <input 
+                name="displayIA"
+                type="checkbox"
+                ref="displayIA"
+                onChange={ this.displayFilters }
+              />
+              &nbsp;
+              <label for="displayIA">IA</label>
+            </div>
+            <div className="row">
+              <input 
+                name="WebSite-App"
+                type="checkbox"
+                ref="WebSite-App"
+                onChange={ this.displayFilters }
+              />
+              &nbsp;
+              <label for="WebSite-App">WebSite-App</label>
+            </div>
+            <div className="row">
+              <input 
+                name="Software"
+                type="checkbox"
+                ref="Software"
+                onChange={ this.displayFilters }
+              />
+              &nbsp;
+              <label for="Software">Software</label>
+            </div>
+            <div className="row">
+              <input 
+                name="AppMobile"
+                type="checkbox"
+                ref="AppMobile"
+                onChange={ this.displayFilters }
+              />
+              &nbsp;
+              <label for="AppMobile">AppMobile</label>
+            </div>
+            <div className="row">
+              <input 
+                name="Autres"
+                type="checkbox"
+                ref="Autres"
+                onChange={ this.displayFilters }
+              />
+              &nbsp;
+              <label for="Autres">Autres</label>
+            </div>
+          </div>
+        </div>
 
         <div className='cards'>
           { cards }
