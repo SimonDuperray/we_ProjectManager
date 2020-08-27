@@ -21,15 +21,19 @@ class AddProject extends Component {
         // check data
         if(project.nom) {
             if(project.description) {
-                if(categoriesList.includes(project.categories)){
-                    this.props.addProject(project)
-                    // Reset form
-                    Object.keys(project).forEach(item => {
-                        project[item] = ''
-                    })
-                    this.setState({ ...project })
+                if(project.categories) {
+                    if(categoriesList.includes(project.categories)) {
+                        this.props.addProject(project)
+                        // Reset form
+                        Object.keys(project).forEach(item => {
+                            project[item] = ''
+                        })
+                        this.setState({ ...project })    
+                    } else {
+                        alert('La catégorie renseignée ne fait pas partie des catégories disponibles: ' + categoriesList)
+                    }
                 } else {
-                    alert('La catégorie renseignée ne fait pas partie de la liste: ' + categoriesList)
+                    alert('Indiquez une catégorie de project parmis: ' + categoriesList)
                 }
             } else {
                 alert('Donnez une description, même courte à votre nouveau projet!')

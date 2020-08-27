@@ -94,6 +94,10 @@ class App extends Component {
         <button
           class="toggleButton"
           onClick={() => this.toggleTDLPart()}
+          style={{
+            backgroundColor: '#3498DB',
+            border: '1px solid black',
+          }}
         >
           { this.state.toggleDisplayTDLInner } TodoList
         </button>
