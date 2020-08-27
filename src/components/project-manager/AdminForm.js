@@ -1,5 +1,7 @@
 import React from 'react'
 
+import categorieslist from '../categorieslist'
+
 const AdminForm = ({
     id: key,
     updateProject,
@@ -22,6 +24,13 @@ const AdminForm = ({
                     name="nom" 
                     type="text" 
                     placeholder="ProjectName" 
+                />
+                <input 
+                    onChange={ event => handleChange(event, key) }
+                    value={ project.categories }
+                    name="categories"
+                    type="text"
+                    placeholder="Categories"
                 />
                 <input 
                     onChange={event => handleChange(event, key) }

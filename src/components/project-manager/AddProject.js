@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import categorieslist from '../categorieslist'
+
 class AddProject extends Component {
     state = {
         nom: '',
@@ -16,13 +18,12 @@ class AddProject extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        const categoriesList = ['IA', 'WebSite-App', 'Software', 'Autre']
         const project = { ...this.state }
         // check data
         if(project.nom) {
             if(project.description) {
                 if(project.categories) {
-                    if(categoriesList.includes(project.categories)) {
+                    if(categorieslist.includes(project.categories)) {
                         this.props.addProject(project)
                         // Reset form
                         Object.keys(project).forEach(item => {
@@ -30,10 +31,10 @@ class AddProject extends Component {
                         })
                         this.setState({ ...project })    
                     } else {
-                        alert('La catégorie renseignée ne fait pas partie des catégories disponibles: ' + categoriesList)
+                        alert('La catégorie renseignée ne fait pas partie des catégories disponibles: ' + categorieslist)
                     }
                 } else {
-                    alert('Indiquez une catégorie de project parmis: ' + categoriesList)
+                    alert('Indiquez une catégorie de project parmis: ' + categorieslist)
                 }
             } else {
                 alert('Donnez une description, même courte à votre nouveau projet!')
