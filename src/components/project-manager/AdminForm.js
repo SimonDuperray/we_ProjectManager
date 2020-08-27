@@ -1,7 +1,5 @@
 import React from 'react'
 
-import categorieslist from '../categorieslist'
-
 const AdminForm = ({
     id: key,
     updateProject,

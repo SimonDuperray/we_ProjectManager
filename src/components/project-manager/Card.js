@@ -33,7 +33,7 @@ class Card extends Component {
                                     {
                                         details.categories
                                     }
-                                </span>
+                                </span>     
                             </p>
                         ) : (
                             

@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 
 import categorieslist from '../categorieslist'
 
+var fs = require('fs')
+
 class AddProject extends Component {
     state = {
         nom: '',
@@ -9,6 +11,21 @@ class AddProject extends Component {
         command: '',
         description: '',
         notes: '',
+        pattern: ''
+    }
+
+    createPatternFolderProject = () => {
+        var path = "C:/Users/simon/OneDrive/Documents/PROGRAMMATION/PROJETS-PM/testFolder"
+        try{
+            fs.mkdirSync(path)
+            console.log('testFolder directory created')
+        } catch(err) {
+            if(err.code == 'EEXIST') {
+                console.log('The directory named testFolder exists')
+            } else {
+                console.log(err)
+            }
+        }
     }
 
     handleChange = event => {
@@ -24,11 +41,18 @@ class AddProject extends Component {
             if(project.description) {
                 if(project.categories) {
                     if(categorieslist.includes(project.categories)) {
+                        if(this.refs.isPattern.checked){
+                            this.setState({ pattern: true })
+                            // this.createPatternFolderProject()
+                        } else {
+                            this.setState({ pattern: false })
+                        }
                         this.props.addProject(project)
                         // Reset form
                         Object.keys(project).forEach(item => {
                             project[item] = ''
                         })
+                        this.refs.isPattern.checked = false
                         this.setState({ ...project })    
                     } else {
                         alert('La catégorie renseignée ne fait pas partie des catégories disponibles: ' + categorieslist)
@@ -56,14 +80,14 @@ class AddProject extends Component {
                         value={ this.state.nom } 
                         name="nom" 
                         type="text" 
-                        placeholder="ProjectName" 
+                        placeholder="ProjectName*"
                     />
                     <input 
                         onChange={ this.handleChange }
                         value={ this.state.categories }
                         name="categories"
                         type="text"
-                        placeholder="Categories"
+                        placeholder="Category*"
                     />
                     <input 
                         onChange={ this.handleChange }
@@ -77,7 +101,7 @@ class AddProject extends Component {
                         value={ this.state.description } 
                         name="description" 
                         rows="10" 
-                        placeholder="Description"
+                        placeholder="Description*"
                     />
                     <textarea 
                         onChange={ this.handleChange } 
@@ -86,6 +110,21 @@ class AddProject extends Component {
                         rows="10" 
                         placeholder="Notes" 
                     />
+                    <div className="rows">
+                        <div style={{marginLeft: '5px'}}>
+                            <label style={{color: 'gray'}} className="row">
+                                Create pattern folder ?
+                            </label>
+                            &nbsp;&nbsp;
+                            <input 
+                                className="row"
+                                type="checkbox"
+                                name="isPattern"
+                                id="isPattern"
+                                ref="isPattern"
+                            />
+                        </div>
+                    </div>
                     <button type="submit">+ Add project</button>
                 </form>
             </div>

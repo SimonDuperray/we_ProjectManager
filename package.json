@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "firebase": "^7.18.0",
+    "mkdirp": "^1.0.4",
     "prop-types": "^15.6.2",
     "re-base": "^4.0.0",
     "react": "^16.6.0",

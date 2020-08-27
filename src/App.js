@@ -139,7 +139,6 @@ class App extends Component {
             <div />
           )
         }
-                
         <footer>
             <h1>© Simon Duperray</h1>
         </footer>
