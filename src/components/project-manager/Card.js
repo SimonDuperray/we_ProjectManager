@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 
 import categorieslist from '../categorieslist'
 
+import InvalidCategory from './InvalidCategory'
+
 class Card extends Component {
     checkBold = () => {
         let notesString = this.props.details.notes
@@ -24,6 +26,13 @@ class Card extends Component {
             <div className="card">
                 <div className="recette">
                     <h2>{details.nom}</h2>
+                    {
+                        !details.categories ? (
+                            <InvalidCategory />
+                        ) : (
+                            <div />
+                        )
+                    }
                     {
                         categorieslist.includes(details.categories) ? (
                             <p className="infoCardRight">
