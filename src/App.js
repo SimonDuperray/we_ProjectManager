@@ -170,6 +170,11 @@ class App extends Component {
               <label for="Autres">Autres</label>
             </div>
           </div>
+          <div id="filterBtnContainer">
+            <button id="filterBtn">
+              Filter
+            </button>
+          </div>
         </div>
 
         <div className='cards'>
