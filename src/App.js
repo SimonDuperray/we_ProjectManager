@@ -20,7 +20,8 @@ class App extends Component {
     toggleAdminPartInner: 'Show',
     projects : {},
     toggleDisplayTDL: false,
-    toggleDisplayTDLInner: 'Show'
+    toggleDisplayTDLInner: 'Show',
+    activeFilter: ''
   }
 
   componentDidMount() {
@@ -71,8 +72,20 @@ class App extends Component {
     this.setState({ toggleDisplayTDL: !this.state.toggleDisplayTDL })
   }
 
-  displayFilters = () => {
-    // alert(this.refs.displayIA.checked)
+  filter = event => {
+    if(event.target.checked) {
+      console.log(event.target.name)
+    } else {
+      console.log('false')
+    }
+  }
+
+  uncheckCheckedBoxes = () => {
+    const checkboxes_ = document.querySelectorAll('.checkboxes')
+    for(let i=0; i<checkboxes_.length; i++) {
+      checkboxes_[i].checked = false
+    }
+    // ??? lister les checkboxes check & uncheck to verify in filter function
   }
 
   render () {
@@ -121,57 +134,67 @@ class App extends Component {
           <div className="flexRendering">
             <div className="row">
               <input 
-                name="displayIA"
+                className="checkboxes"
+                name="IA"
                 type="checkbox"
-                ref="displayIA"
-                onChange={ this.displayFilters }
+                ref="IA"
+                onChange={ this.filter }
               />
               &nbsp;
-              <label for="displayIA">IA</label>
+              <label for="IA">IA</label>
             </div>
             <div className="row">
               <input 
+                className="checkboxes"
                 name="WebSite-App"
                 type="checkbox"
                 ref="WebSite-App"
-                onChange={ this.displayFilters }
+                onChange={ this.filter }
               />
               &nbsp;
               <label for="WebSite-App">WebSite-App</label>
             </div>
             <div className="row">
               <input 
+                className="checkboxes"
                 name="Software"
                 type="checkbox"
                 ref="Software"
-                onChange={ this.displayFilters }
+                onChange={ this.filter }
               />
               &nbsp;
               <label for="Software">Software</label>
             </div>
             <div className="row">
               <input 
+                className="checkboxes"
                 name="AppMobile"
                 type="checkbox"
                 ref="AppMobile"
-                onChange={ this.displayFilters }
+                onChange={ this.filter }
               />
               &nbsp;
               <label for="AppMobile">AppMobile</label>
             </div>
             <div className="row">
               <input 
+                className="checkboxes"
                 name="Autres"
                 type="checkbox"
                 ref="Autres"
-                onChange={ this.displayFilters }
+                onChange={ this.filter }
               />
               &nbsp;
               <label for="Autres">Autres</label>
             </div>
           </div>
           <div id="filterBtnContainer">
-            <button id="filterBtn">
+            <button
+              id="filterBtn"
+              onClick={ () => {
+                alert(this.state.activeFilter)
+              } }
+            >
               Filter
             </button>
           </div>
