@@ -75,15 +75,25 @@ class App extends Component {
   }
 
   filter = event => {
-    const name_ = event.target.name
     const checkboxes_ = document.querySelectorAll('.checkboxes')
-    this.setState({ activeFilter: name_ })
+    const cpt = new Array
+    const result = ''
     if(this.state.activeFilter !== '') {
       for(let i=0; i<checkboxes_.length; i++) {
         if(checkboxes_[i].name !== this.state.activeFilter) {
           checkboxes_[i].checked = false
+        } else if(checkboxes_[i].checked === false) {
+          cpt.push(checkboxes_[i].checked)
+        } else {
+          cpt.push(true)
         }
       }
+      if(!cpt.includes(true)) {
+        console.log('state vide')
+      } else {
+        result = event.target.name
+      }
+      this.setState({ activeFilter: result })
     }
   }
 
@@ -95,6 +105,31 @@ class App extends Component {
   
     return (
       <div className='box'>
+        <button
+          onClick={() => {
+            const check = document.querySelectorAll('.checkboxes')
+            const cpt = new Array
+            for(let i=0; i<check.length; i++) {
+              // changer de système (récupérer dynamiquement le nombre de filtes)
+              // et vérifier si la longueur de cpt === nbFiltres
+              // au lieu de push true
+              if(check[i].checked === false) {
+                cpt.push(check[i].checked)
+              } else {
+                cpt.push(true)
+              }
+            }
+            if(!cpt.includes(true)) {
+              this.setState({ activeFilter: '' })
+              console.log('state vide')
+            } else {
+              console.log('some true')
+            }
+            console.log(cpt)
+          }}
+        >
+          Test
+        </button>
         <Header 
           pseudo={this.state.pseudo} 
           cpt={this.state.cpt}
