@@ -76,12 +76,11 @@ class App extends Component {
 
   filter = event => {
     const name_ = event.target.name
-    const checked_ = event.target.checked
     const checkboxes_ = document.querySelectorAll('.checkboxes')
     this.setState({ activeFilter: name_ })
-    if(this.state.activeFilter !== '' && checked_) {
+    if(this.state.activeFilter !== '') {
       for(let i=0; i<checkboxes_.length; i++) {
-        if(checkboxes_[i].checked && checkboxes_[i].name !== this.state.activeFilter) {
+        if(checkboxes_[i].name !== this.state.activeFilter) {
           checkboxes_[i].checked = false
         }
       }
