@@ -12,6 +12,8 @@ import TodoList from './components/todo-list/TodoList'
 import base from './base'
 import adminlist from './components/adminlist'
 
+localStorage.setItem('listFilters', [])
+
 class App extends Component {
   state = {
     pseudo: this.props.match.params.pseudo,
@@ -73,19 +75,17 @@ class App extends Component {
   }
 
   filter = event => {
-    if(event.target.checked) {
-      console.log(event.target.name)
-    } else {
-      console.log('false')
-    }
-  }
-
-  uncheckCheckedBoxes = () => {
+    const name_ = event.target.name
+    const checked_ = event.target.checked
     const checkboxes_ = document.querySelectorAll('.checkboxes')
-    for(let i=0; i<checkboxes_.length; i++) {
-      checkboxes_[i].checked = false
+    this.setState({ activeFilter: name_ })
+    if(this.state.activeFilter !== '' && checked_) {
+      for(let i=0; i<checkboxes_.length; i++) {
+        if(checkboxes_[i].checked && checkboxes_[i].name !== this.state.activeFilter) {
+          checkboxes_[i].checked = false
+        }
+      }
     }
-    // ??? lister les checkboxes check & uncheck to verify in filter function
   }
 
   render () {
@@ -188,7 +188,7 @@ class App extends Component {
               <label for="Autres">Autres</label>
             </div>
           </div>
-          <div id="filterBtnContainer">
+          {/* <div id="filterBtnContainer">
             <button
               id="filterBtn"
               onClick={ () => {
@@ -197,7 +197,7 @@ class App extends Component {
             >
               Filter
             </button>
-          </div>
+          </div> */}
         </div>
 
         <div className='cards'>
