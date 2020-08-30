@@ -75,37 +75,36 @@ class App extends Component {
   }
 
   filter = event => {
-    // const checkboxes_ = document.querySelectorAll('.checkboxes')
-    // const cpt = new Array
-    // const result = ''
-    // if(this.state.activeFilter !== '') {
-    //   for(let i=0; i<checkboxes_.length; i++) {
-    //     if(checkboxes_[i].name !== this.state.activeFilter) {
-    //       checkboxes_[i].checked = false
-    //     } else if(checkboxes_[i].checked === false) {
-    //       cpt.push(checkboxes_[i].checked)
-    //     } else {
-    //       cpt.push(true)
-    //     }
-    //   }
-    //   if(!cpt.includes(true)) {
-    //     console.log('state vide')
-    //   } else {
-    //     result = event.target.name
-    //   }
-    //   this.setState({ activeFilter: result })
-    //   console.log(this.state.activeFilter)
-    // }
+    // const declarations
     const checkboxes_ = document.querySelectorAll('.checkboxes')
-    const cpt = new Array
+    const resultsStates = new Array
+    let cptTrue = 0
+    let finalUpdateState = ''
+    // get all states from checkboxes
     for(let i=0; i<checkboxes_.length; i++) {
       if(checkboxes_[i].checked===true) {
-        cpt.push(true)
+        resultsStates.push(true)
       } else {
-        cpt.push(false)
+        resultsStates.push(false)
       }
     }
-    console.log('result:'+cpt)
+    // count nb of true in result array
+    for(let j=0; j<resultsStates.length; j++) {
+      if(resultsStates[j]===true) {
+        cptTrue += 1
+      } 
+    }
+    // transform to switch/case
+    if(cptTrue===1) {
+      finalUpdateState = event.target.name
+    } else if(cptTrue>1) {
+      alert('Choose only one filter + state empty')
+      for(let i=0; i<checkboxes_.length; i++) {
+        checkboxes_[i].checked = false
+      }
+    }
+    this.setState({ activeFilter: finalUpdateState })
+    console.log('state updated')
   }
 
   render () {
@@ -237,7 +236,7 @@ class App extends Component {
 
         {
           this.state.activeFilter ? (
-            <h1>Quelque chose</h1>
+            <h1>{ this.state.activeFilter }</h1>
           ) : (
             <div className="cards">
               { cards }
@@ -245,11 +244,6 @@ class App extends Component {
           )
         }
         
-        {/* <div className='cards'>
-          { cards }
-        </div>   */}
-
-
         <button
           class="toggleButton"
           onClick={() => this.toggleAdminPart()}
