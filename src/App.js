@@ -75,26 +75,37 @@ class App extends Component {
   }
 
   filter = event => {
+    // const checkboxes_ = document.querySelectorAll('.checkboxes')
+    // const cpt = new Array
+    // const result = ''
+    // if(this.state.activeFilter !== '') {
+    //   for(let i=0; i<checkboxes_.length; i++) {
+    //     if(checkboxes_[i].name !== this.state.activeFilter) {
+    //       checkboxes_[i].checked = false
+    //     } else if(checkboxes_[i].checked === false) {
+    //       cpt.push(checkboxes_[i].checked)
+    //     } else {
+    //       cpt.push(true)
+    //     }
+    //   }
+    //   if(!cpt.includes(true)) {
+    //     console.log('state vide')
+    //   } else {
+    //     result = event.target.name
+    //   }
+    //   this.setState({ activeFilter: result })
+    //   console.log(this.state.activeFilter)
+    // }
     const checkboxes_ = document.querySelectorAll('.checkboxes')
     const cpt = new Array
-    const result = ''
-    if(this.state.activeFilter !== '') {
-      for(let i=0; i<checkboxes_.length; i++) {
-        if(checkboxes_[i].name !== this.state.activeFilter) {
-          checkboxes_[i].checked = false
-        } else if(checkboxes_[i].checked === false) {
-          cpt.push(checkboxes_[i].checked)
-        } else {
-          cpt.push(true)
-        }
-      }
-      if(!cpt.includes(true)) {
-        console.log('state vide')
+    for(let i=0; i<checkboxes_.length; i++) {
+      if(checkboxes_[i].checked===true) {
+        cpt.push(true)
       } else {
-        result = event.target.name
+        cpt.push(false)
       }
-      this.setState({ activeFilter: result })
     }
+    console.log('result:'+cpt)
   }
 
   render () {
@@ -222,21 +233,23 @@ class App extends Component {
               <label for="Autres">Autres</label>
             </div>
           </div>
-          {/* <div id="filterBtnContainer">
-            <button
-              id="filterBtn"
-              onClick={ () => {
-                alert(this.state.activeFilter)
-              } }
-            >
-              Filter
-            </button>
-          </div> */}
         </div>
 
-        <div className='cards'>
+        {
+          this.state.activeFilter ? (
+            <h1>Quelque chose</h1>
+          ) : (
+            <div className="cards">
+              { cards }
+            </div>
+          )
+        }
+        
+        {/* <div className='cards'>
           { cards }
-        </div>  
+        </div>   */}
+
+
         <button
           class="toggleButton"
           onClick={() => this.toggleAdminPart()}
