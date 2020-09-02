@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom'
 class Connexion extends React.Component {
   state = {
     pseudo: '',
+    password: '',
     goToApp: false
   }
 
@@ -13,8 +14,8 @@ class Connexion extends React.Component {
   }
 
   handleChange = event => {
-    const pseudo = event.target.value
-    this.setState({ pseudo })
+    event.preventDefault()
+    this.setState({ [event.target.name]: event.target.value })
   }
 
   render () {
@@ -22,19 +23,42 @@ class Connexion extends React.Component {
       return <Redirect push to={`/pseudo/${this.state.pseudo}`} />
     }
 
+    // to store on firebase
+    const PASSWORD = "JaX2hLyt"
+
     return (
       <div className='connexionBox'>
         <form className='connexion' onSubmit={this.goToApp} >
           <h1>Project Manager</h1>
           <input
-            id="askDevName"
+            id="pseudo"
+            name="pseudo"
             type='text'
             value={this.state.pseudo}
             onChange={this.handleChange}
             placeholder='Nom du Développeur'
             pattern='[A-Za-z-]{1,}'
             required />
-          <button type='submit'>GO</button>
+          <input
+          style={{
+            marginTop: '15px'
+          }}
+          id="password"
+          name="password"
+          type='password'
+          value={this.state.password}
+          onChange={this.handleChange}
+          placeholder='Password'
+          required />
+
+          {
+            this.state.password===PASSWORD ? (
+              <button type="submit">Go</button>
+            ) : (
+              <div />
+            )
+          }
+          
           <p style={{fontSize: '11px', textAlign: 'center'}}>Pas de caractères spéciaux.</p>
         </form>
       </div>
