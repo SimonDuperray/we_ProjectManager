@@ -46,7 +46,6 @@ button {
 	cursor: pointer;
 	border-radius: 2px;
 }
-
 button:disabled {
 	background-color: #eceff1;
 	cursor:not-allowed;
@@ -58,11 +57,9 @@ button:disabled {
 	font-family: 'Roboto', sans-serif;
 	color: #212121;
 }
-
 .box > * {
 	flex: 1 1 100vw;
 }
-
 header {
 	letter-spacing: 2px;
 	text-align: center;
@@ -102,7 +99,6 @@ header #moreInfoHeader {
 /* ----------------------------
 	Conditionnal rendering with filters
 ---------------------------- */
-
 .filtersRenderCards {
 	background-color: #EAEDED;
 	box-shadow: 3px 3px 7px #85929E;
@@ -118,6 +114,9 @@ header #moreInfoHeader {
 #noMgTitleFilters {
 	margin: 5px 20vh;
 	border-bottom: 1px solid black;
+}
+.projectTitle {
+	margin-bottom: 5px;
 }
 .flexRendering {
 	padding: 5px 10px;
@@ -135,20 +134,34 @@ header #moreInfoHeader {
 	border-radius: 5px;
 	border: 1px solid black;
 }
-
 .cards {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 }
-
 .card {
 	flex: 0 1 500px;
-	/* min-height: 500px; */
 	padding: 10px 0;
 	margin: 20px 15px;
 	box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
 	border-radius: 2px;
+}
+.finishedCard {
+	flex: 0 1 500px;
+	padding: 10px 0;
+	margin: 20px 15px;
+	box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+	border-radius: 2px;
+	background-color: #A9DFBF;
+}
+#isFinishedLabel {
+	font-size: 10px;
+}
+#isFinished {
+	zoom: 0.6;
+}
+input:checked ~ .isFinishedClass {
+	background-color: red!important;
 }
 #invalid-category {
 	font-size: 22px;
@@ -163,6 +176,7 @@ header #moreInfoHeader {
 .infoCardRight {
 	font-size: 17px;
 	text-align: end;
+	margin-top: 0;
 }
 .recette {
 	padding: 0 20px;
@@ -186,10 +200,7 @@ header #moreInfoHeader {
 .recette ul li {
 	margin-bottom: 10px;
 }
-
-
 @media all and (max-width:500px) {
-	
 	h1 {
 		font-size: 1.3em;
 	}
@@ -200,11 +211,9 @@ header #moreInfoHeader {
 		margin: 0;
 	}
 }
-
 /* ----------------------------
 	Footer
 ---------------------------- */
-
 footer {
 	display: flex;
 	justify-content: space-around;
@@ -213,11 +222,9 @@ footer {
 	box-shadow: 0px -3px 5px rgba(0,0,0,0.2);
 	width: 100%;
 }
-
 /* ----------------------------
 	NotFound
 ---------------------------- */
-
 .notFound {
 	display: flex;
 	justify-content: center;
@@ -226,11 +233,9 @@ footer {
 	margin: 0;
 	background: #eceff1;
 }
-
 /* ----------------------------
 	Admin
 ---------------------------- */
-
 .admin-form > * {
 	width: 100%;
 	font-size: 18px;
@@ -241,17 +246,14 @@ footer {
 	margin-bottom: 5px;
 	font-family: 'Roboto', sans-serif;
 }
-
 .card > button {
 	width: 100%;
 	background: #69F0AE;
 }
-
 .ajouter-recette > * 	{
 	border: 5px solid #F44336;
 	border-width: 1px 1px 5px 1px;
 }
-
 .toggleButton {
 	margin-left: 30%;
 	margin-right: 30%;
@@ -260,16 +262,6 @@ footer {
 	border: 1px solid black;
 	font-family: 'Roboto', sans-serif;
 }
-
-/* .categories {
-	padding-left: 25px;
-	padding-right: 25px;
-	text-align: center;
-	display: flex;
-	justify-content: space-between;
-	color: lightslategrey;
-} */
-
 #titleMarkdownHelp {
 	padding: 0 20px;
 	font-family: "Baloo Tamma 2", sans-serif;
@@ -284,27 +276,17 @@ footer {
 	display: inline;
 	padding: 20px;
 }
-
 /* ----------------------------
 	Login
 ---------------------------- */
-
 .login {
 	padding: 5px;
 	text-align: center;
 	max-width: 500px;
 	margin: auto;
 }
-
 .login > * {
 	width: 100%;
 	
 	margin: 0 auto 20px auto;
-}
-
-/* ----------------------------
-	Test
----------------------------- */
-#test {
-	
 }

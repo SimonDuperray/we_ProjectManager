@@ -51,7 +51,7 @@ class App extends Component {
   }
 
   deleteProject = key => {
-    const projects = {  ...this.state.projects}
+    const projects = {  ...this.state.projects }
     projects[key] = null
     this.setState({ projects })
   }
@@ -104,42 +104,36 @@ class App extends Component {
       }
     }
     this.setState({ activeFilter: finalUpdateState })
-    console.log('state updated')
+  }
+
+  renderCards = isFilter => {
+    let cards = ''
+    const listProjId = new Array
+    const test_ = Object.keys(this.state.projects)
+    for(let i=0; i<test_.length; i++) {
+      listProjId.push((test_)[i])
+    }
+    // if no filter => render basics cards
+    if(isFilter==='') {
+      cards = Object.keys(this.state.projects)
+        .map(key => <Card key={key} details={this.state.projects[key]} />)
+    } 
+    // if filter => keep only corresponding cards to render it
+    else {
+
+    }
+    return cards
   }
 
   render () {
+    const category = this.props.catagories
     const cards = Object.keys(this.state.projects)
       .map(key => <Card key={key} details={this.state.projects[key]}/>)
-    // update cpt
+      // update cpt
     this.state.cpt = cards.length
   
     return (
       <div className='box'>
-        <button
-          onClick={() => {
-            const check = document.querySelectorAll('.checkboxes')
-            const cpt = new Array
-            for(let i=0; i<check.length; i++) {
-              // changer de système (récupérer dynamiquement le nombre de filtes)
-              // et vérifier si la longueur de cpt === nbFiltres
-              // au lieu de push true
-              if(check[i].checked === false) {
-                cpt.push(check[i].checked)
-              } else {
-                cpt.push(true)
-              }
-            }
-            if(!cpt.includes(true)) {
-              this.setState({ activeFilter: '' })
-              console.log('state vide')
-            } else {
-              console.log('some true')
-            }
-            console.log(cpt)
-          }}
-        >
-          Test
-        </button>
         <Header 
           pseudo={this.state.pseudo} 
           cpt={this.state.cpt}
@@ -153,7 +147,7 @@ class App extends Component {
         }
 
         <button
-          class="toggleButton"
+          className="toggleButton"
           onClick={() => this.toggleTDLPart()}
           style={{
             backgroundColor: '#3498DB',
@@ -233,15 +227,11 @@ class App extends Component {
             </div>
           </div>
         </div>
-
+        
         {
-          this.state.activeFilter ? (
-            <h1>{ this.state.activeFilter }</h1>
-          ) : (
-            <div className="cards">
-              { cards }
-            </div>
-          )
+          <div className="cards">
+            { this.renderCards(this.state.activeFilter) }
+          </div>
         }
         
         <button
