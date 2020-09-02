@@ -17,7 +17,7 @@ import {
 const Root = () => (
   <Router>
     <Switch>
-      <Route exact path='/' component={Connexion} />
+      <Route exact path='/ProjectManager/' component={Connexion} />
       <Route path='/pseudo/:pseudo' component={App} />
       <Route component={NotFound} />
     </Switch>
