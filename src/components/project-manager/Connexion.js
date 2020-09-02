@@ -31,7 +31,6 @@ class Connexion extends React.Component {
         <form className='connexion' onSubmit={this.goToApp} >
           <h1>Project Manager</h1>
           <input
-            id="pseudo"
             name="pseudo"
             type='text'
             value={this.state.pseudo}
@@ -43,7 +42,6 @@ class Connexion extends React.Component {
           style={{
             marginTop: '15px'
           }}
-          id="password"
           name="password"
           type='password'
           value={this.state.password}
