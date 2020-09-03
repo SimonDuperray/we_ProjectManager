@@ -51,6 +51,7 @@ class App extends Component {
   }
 
   deleteProject = key => {
+    sendChcekMail()
     const projects = {  ...this.state.projects }
     projects[key] = null
     this.setState({ projects })
