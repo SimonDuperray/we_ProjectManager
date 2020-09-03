@@ -17,7 +17,8 @@ import {
 const Root = () => (
   <Router>
     <Switch>
-      <Route exact path='http://Kartodix.github.io/ProjectManager' component={Connexion} />
+      <Route exact path={process.env.PUBLIC_IRL + '/kartodix.github.io/ProjectManager/'} />
+      {/* <Route exact path='http://Kartodix.github.io/ProjectManager' component={Connexion} /> */}
       {/* <Route exact path='/' component={Connexion} /> */}
       <Route path='/pseudo/:pseudo' component={App} />
       <Route component={NotFound} />
