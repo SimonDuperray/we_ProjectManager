@@ -52,10 +52,10 @@ class App extends Component {
 
   deleteProject = key => {
     let isCorrect = false
-    const CONFIRMATION_CODE = Math.random().toString(36).substring(7)
+    let CONFIRMATION_CODE = Math.random().toString(36)
     let PROJECT_DELETED = ''
     let NEW_DATE_OBJECT = new Date()
-    const CURRENT_DATE = NEW_DATE_OBJECT.getFullYear()+'/'+(NEW_DATE_OBJECT.getMonth()+1)+'/'+NEW_DATE_OBJECT.getDate()+'-'+NEW_DATE_OBJECT.getHours()+':'+NEW_DATE_OBJECT.getMinutes()+':'+NEW_DATE_OBJECT.getSeconds()
+    const CURRENT_DATE = NEW_DATE_OBJECT.getFullYear()+'/'+(NEW_DATE_OBJECT.getMonth()+1)+'/'+NEW_DATE_OBJECT.getDate()+'-'+NEW_DATE_OBJECT.getHours()+'h'+NEW_DATE_OBJECT.getMinutes()+'min'+NEW_DATE_OBJECT.getSeconds()+'s'
     console.log(CONFIRMATION_CODE)
     var askForCode = prompt('Confirmation code')
     switch(true) {
@@ -69,11 +69,13 @@ class App extends Component {
       const projects = { ...this.state.projects }
       PROJECT_DELETED = projects[key].nom
       console.log(PROJECT_DELETED+' was deleted at ' + CURRENT_DATE+' by '+this.state.pseudo+' with the next code: '+CONFIRMATION_CODE)
-      // projects[key] = null
-      // this.setState({ projects })
+      projects[key] = null
+      this.setState({ projects })
     } else {
-      alert('wrong code')
+      // get ip from user
+      alert('wrong code, a mail\'ll be sent to the administrator to check your identity')
     }
+    CONFIRMATION_CODE = ''
   }
 
   toggleAdminPart = () => {
@@ -184,7 +186,7 @@ class App extends Component {
             <div />
           )
         }
-
+        {/* transform to component */}
         <div className="filtersRenderCards rows">
           <div className="filterTitle">
             <h3 id="noMgTitleFilters">Filters</h3>
