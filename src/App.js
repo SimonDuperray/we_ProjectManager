@@ -51,10 +51,29 @@ class App extends Component {
   }
 
   deleteProject = key => {
-    sendChcekMail()
-    const projects = {  ...this.state.projects }
-    projects[key] = null
-    this.setState({ projects })
+    let isCorrect = false
+    const CONFIRMATION_CODE = Math.random().toString(36).substring(7)
+    let PROJECT_DELETED = ''
+    let NEW_DATE_OBJECT = new Date()
+    const CURRENT_DATE = NEW_DATE_OBJECT.getFullYear()+'/'+(NEW_DATE_OBJECT.getMonth()+1)+'/'+NEW_DATE_OBJECT.getDate()+'-'+NEW_DATE_OBJECT.getHours()+':'+NEW_DATE_OBJECT.getMinutes()+':'+NEW_DATE_OBJECT.getSeconds()
+    console.log(CONFIRMATION_CODE)
+    var askForCode = prompt('Confirmation code')
+    switch(true) {
+      case askForCode===CONFIRMATION_CODE:
+        isCorrect = true
+        break;
+      case askForCode!==CONFIRMATION_CODE:
+        break;
+    }
+    if(isCorrect) {
+      const projects = { ...this.state.projects }
+      PROJECT_DELETED = projects[key].nom
+      console.log(PROJECT_DELETED+' was deleted at ' + CURRENT_DATE+' by '+this.state.pseudo+' with the next code: '+CONFIRMATION_CODE)
+      // projects[key] = null
+      // this.setState({ projects })
+    } else {
+      alert('wrong code')
+    }
   }
 
   toggleAdminPart = () => {
