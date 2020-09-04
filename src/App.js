@@ -50,6 +50,13 @@ class App extends Component {
     this.setState({ projects })
   }
 
+  runMailScript = () => {
+    window.open("file:///C:\Users\simon\OneDrive\Documents\PROGRAMMATION\PROJETS-ETE2020\CP_ELECTRONJS\project-manager\project-manager\run.bat")
+    console.log('opened')
+    // var oShell = WScript.CreateObject("WScript.Shell");
+    // oShell.Exec("start C:\Users\simon\OneDrive\Documents\PROGRAMMATION\PROJETS-ETE2020\CP_ELECTRONJS\project-manager\project-manager\run.bat");
+  }
+
   deleteProject = key => {
     let isCorrect = false
     let CONFIRMATION_CODE = Math.random().toString(36)
@@ -69,10 +76,11 @@ class App extends Component {
       const projects = { ...this.state.projects }
       PROJECT_DELETED = projects[key].nom
       console.log(PROJECT_DELETED+' was deleted at ' + CURRENT_DATE+' by '+this.state.pseudo+' with the next code: '+CONFIRMATION_CODE)
-      projects[key] = null
-      this.setState({ projects })
+      // projects[key] = null
+      // this.setState({ projects })
     } else {
       // get ip from user
+      // start timer
       alert('wrong code, a mail\'ll be sent to the administrator to check your identity')
     }
     CONFIRMATION_CODE = ''
@@ -167,6 +175,7 @@ class App extends Component {
             <div />
           )
         }
+        <button onClick={this.runMailScript}>Click to send mail</button>
 
         <button
           className="toggleButton"
@@ -178,7 +187,7 @@ class App extends Component {
         >
           { this.state.toggleDisplayTDLInner } TodoList
         </button>
-
+        
         {
           this.state.toggleDisplayTDL ? (
             <TodoList />
