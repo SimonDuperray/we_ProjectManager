@@ -1,13 +1,13 @@
 {
   "main.css": "/ProjectManager/static/css/main.f4d6c60b.chunk.css",
-  "main.js": "/ProjectManager/static/js/main.0f9609b7.chunk.js",
-  "main.js.map": "/ProjectManager/static/js/main.0f9609b7.chunk.js.map",
+  "main.js": "/ProjectManager/static/js/main.8c51b5eb.chunk.js",
+  "main.js.map": "/ProjectManager/static/js/main.8c51b5eb.chunk.js.map",
   "static/js/1.1f1d204b.chunk.js": "/ProjectManager/static/js/1.1f1d204b.chunk.js",
   "static/js/1.1f1d204b.chunk.js.map": "/ProjectManager/static/js/1.1f1d204b.chunk.js.map",
   "runtime~main.js": "/ProjectManager/static/js/runtime~main.c82fc195.js",
   "runtime~main.js.map": "/ProjectManager/static/js/runtime~main.c82fc195.js.map",
   "static/css/main.f4d6c60b.chunk.css.map": "/ProjectManager/static/css/main.f4d6c60b.chunk.css.map",
   "index.html": "/ProjectManager/index.html",
-  "precache-manifest.32ab3d74762066812be98455d1a484ea.js": "/ProjectManager/precache-manifest.32ab3d74762066812be98455d1a484ea.js",
+  "precache-manifest.1692410a546c70027c815a408633d03d.js": "/ProjectManager/precache-manifest.1692410a546c70027c815a408633d03d.js",
   "service-worker.js": "/ProjectManager/service-worker.js"
 }
