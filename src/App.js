@@ -74,11 +74,10 @@ class App extends Component {
       const projects = { ...this.state.projects }
       PROJECT_DELETED = projects[key].nom
       console.log(PROJECT_DELETED+' was deleted at ' + CURRENT_DATE+' by '+this.state.pseudo+' with the next code: '+CONFIRMATION_CODE)
-      // projects[key] = null
-      // this.setState({ projects })
+      projects[key] = null
+      this.setState({ projects })
     } else {
       // get ip from user
-      // start timer
       alert('wrong code, a mail\'ll be sent to the administrator to check your identity')
     }
     CONFIRMATION_CODE = ''
