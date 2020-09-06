@@ -168,7 +168,9 @@ class App extends Component {
         />
         {
           adminlist.includes(this.state.pseudo) ? (
-            <BienvenueAdmin />
+            <div className="bvnadmin">
+              <BienvenueAdmin />
+            </div>
           ) : (
             <div />
           )

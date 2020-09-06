@@ -19,19 +19,12 @@ class Header extends Component {
     render() {
         const { pseudo, cpt } = this.props  
         const pm = "\'s Project Manager"
-        const pma = "\'s Project Manager *"
         return(
             <header>
                 {
                     !this.state.nStateHeader ? (
                         <div id="hiddenHeader" className="rows">
-                            {
-                                adminlist.includes(pseudo) ? (
-                                    <WelcomeHeader pseudo={pseudo} welcome={pma} />
-                                ) : (
-                                    <WelcomeHeader pseudo={pseudo} welcome={pm} />
-                                )
-                            }
+                            <WelcomeHeader pseudo={pseudo} welcome={pm} />
                             <button 
                                 className="row" 
                                 id="revealHeader"
@@ -43,13 +36,7 @@ class Header extends Component {
                     ) : (
                         <div>
                             <div id="showedHeader" className="rows">
-                                {
-                                    adminlist.includes(pseudo) ? (
-                                        <WelcomeHeader pseudo={pseudo} welcome={pma} />
-                                    ) : (
-                                        <WelcomeHeader pseudo={pseudo} welcome={pm} />
-                                    )
-                                }
+                                <WelcomeHeader pseudo={pseudo} welcome={pm} />
                                 <button 
                                     className="row" 
                                     id="revealHeader"

@@ -62,6 +62,7 @@ button:disabled {
 	flex-wrap: wrap;
 	font-family: 'Roboto', sans-serif;
 	color: #212121;
+	width: 100vw;
 }
 .box > * {
 	flex: 1 1 100vw;
@@ -103,6 +104,14 @@ header #moreInfoHeader {
 	margin: 0 100px;
 }
 /* ----------------------------
+	BvnAdmin
+---------------------------- */
+div.bvnadmin {
+	width: auto;
+	margin-left: 5vw;
+	margin-right: 5vw;
+}
+/* ----------------------------
 	Conditionnal rendering with filters
 ---------------------------- */
 .filtersRenderCards {
@@ -139,25 +148,18 @@ header #moreInfoHeader {
 	border: 1px solid black;
 }
 div.cards {
-	margin-top: 2vh;
+	margin-top: 10px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	width: auto;
-	margin-left: 2vw;
-	margin-right: 2vw;
 }
-.card {
+div.card {
 	flex: 0 1 500px;
 	padding: 10px 0;
 	margin: 20px 15px;
 	box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
 	border-radius: 2px;
 }
-/* div.card {
-	margin-left: 5vw;
-	margin-right: 5vw;
-} */
 .finishedCard {
 	flex: 0 1 500px;
 	padding: 10px 0;
