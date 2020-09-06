@@ -15,14 +15,18 @@ import {
 } from 'react-router-dom'
 
 const Root = () => (
+  // <Router>
+  //   <Switch>
+  //     <Route exact path='/' component={Connexion} />
+  //     <Route path='/pseudo/:pseudo' component={App} />
+  //     <Route component={NotFound} />
+  //   </Switch>
+  // </Router>
   <Router>
     <Switch>
-      {/* <Route exact path='kartodix.github.io/repoName/' component={Connexion} />
-      <Route path='kartodix.github.io/repoName/pseudo/:pseudo' component={App} /> */}
-      <Route exact path='/' component={Connexion} />
-      <Route path='/pseudo/:pseudo' component={App} />
-
-      <Route component={NotFound} />
+      <Route exact path='/' render={props => <Connexion />} />
+      <Route path='/pseudo/:pseudo' render={props => <App />} />
+      <Route render={props => <NotFound />} />
     </Switch>
   </Router>
 )
@@ -30,4 +34,3 @@ const Root = () => (
 ReactDOM.render(<Root />, document.getElementById('root'))
 
 serviceWorker.unregister()
-
