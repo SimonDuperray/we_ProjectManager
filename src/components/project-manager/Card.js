@@ -14,9 +14,9 @@ class Card extends Component {
         return notesString
     }
 
-    handleFinished = () => {
-        this.setState({ isFinished: !this.state.isFinished })
-    }
+    // handleFinished = () => {
+    //     this.setState({ isFinished: !this.state.isFinished })
+    // }
 
     render() {
         const { details } = this.props
@@ -35,7 +35,7 @@ class Card extends Component {
             <div className={ this.state.isFinished ? 'finishedCard' : 'card' }>
                     <div className="recette">
                         <h2 class="projectTitle" >{details.nom}</h2>
-                        <div>
+                        {/* <div>
                             <input 
                                 type="checkbox" 
                                 name="isFinished" 
@@ -45,7 +45,7 @@ class Card extends Component {
                             />
                             &nbsp;
                             <label id="isFinishedLabel" for="isFinished">Finished/StableVersion</label>
-                        </div>
+                        </div> */}
                         {
                             !details.categories ? (
                                 <InvalidCategory />

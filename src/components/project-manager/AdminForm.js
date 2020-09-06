@@ -52,6 +52,17 @@ const AdminForm = ({
                     rows="10" 
                     placeholder="Notes" 
                 />
+                {/* <div className="rows">
+                    <input 
+                        className="row"
+                        onChange={event => handleChangeCheckbox(event, key)}
+                        type="radio"
+                        name="isFinished"
+                        id="isFinished"
+                    />
+                    &nbsp;&nbsp;
+                    <label className="row" for="isFinished">Finished/StableVersion</label>
+                </div> */}
             </form>
             <button onClick={() => deleteProject(key)}>Delete</button>
         </div>

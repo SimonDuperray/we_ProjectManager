@@ -11,3 +11,6 @@ pManager487!
 
 # TODO BEFORE PUBLISH FIRST STABLE VERSION
 -> 
+
+
+run php script when clicked on delete project

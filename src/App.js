@@ -6,7 +6,7 @@ import Header from './components/project-manager/Header'
 import Admin from './components/project-manager/Admin'
 import Card from './components/project-manager/Card'
 import BienvenueAdmin from './components/project-manager/BienvenueAdmin'
-import TodoList from './components/todo-list/TodoList'
+// import TodoList from './components/todo-list/TodoList'
 
 // Firebase
 import base from './base'
@@ -53,8 +53,6 @@ class App extends Component {
   runMailScript = () => {
     window.open("file:///C:\Users\simon\OneDrive\Documents\PROGRAMMATION\PROJETS-ETE2020\CP_ELECTRONJS\project-manager\project-manager\run.bat")
     console.log('opened')
-    // var oShell = WScript.CreateObject("WScript.Shell");
-    // oShell.Exec("start C:\Users\simon\OneDrive\Documents\PROGRAMMATION\PROJETS-ETE2020\CP_ELECTRONJS\project-manager\project-manager\run.bat");
   }
 
   deleteProject = key => {
@@ -64,7 +62,7 @@ class App extends Component {
     let NEW_DATE_OBJECT = new Date()
     const CURRENT_DATE = NEW_DATE_OBJECT.getFullYear()+'/'+(NEW_DATE_OBJECT.getMonth()+1)+'/'+NEW_DATE_OBJECT.getDate()+'-'+NEW_DATE_OBJECT.getHours()+'h'+NEW_DATE_OBJECT.getMinutes()+'min'+NEW_DATE_OBJECT.getSeconds()+'s'
     console.log(CONFIRMATION_CODE)
-    var askForCode = prompt('Confirmation code')
+    var askForCode = prompt('Confirmation code') 
     switch(true) {
       case askForCode===CONFIRMATION_CODE:
         isCorrect = true
@@ -175,9 +173,8 @@ class App extends Component {
             <div />
           )
         }
-        <button onClick={this.runMailScript}>Click to send mail</button>
 
-        <button
+        {/* <button
           className="toggleButton"
           onClick={() => this.toggleTDLPart()}
           style={{
@@ -194,9 +191,11 @@ class App extends Component {
           ) : (
             <div />
           )
-        }
+        } */}
+
         {/* transform to component */}
-        <div className="filtersRenderCards rows">
+
+        {/* <div className="filtersRenderCards rows">
           <div className="filterTitle">
             <h3 id="noMgTitleFilters">Filters</h3>
           </div>
@@ -257,7 +256,7 @@ class App extends Component {
               <label for="Autres">Autres</label>
             </div>
           </div>
-        </div>
+        </div> */}
         
         {
           <div className="cards">
