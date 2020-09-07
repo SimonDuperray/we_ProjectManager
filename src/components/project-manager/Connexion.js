@@ -25,7 +25,16 @@ class Connexion extends Component {
 
   handleChange = event => {
     event.preventDefault()
+    let PASSWORDCLASSLIST = document.querySelector('#passwordinput').classList
+    let DEVNAMECLASSLIST = document.querySelector('#pseudoinput').classList
     this.setState({ [event.target.name]: event.target.value })
+    if(event.target.name==="password" && this.state.password===this.state.correctPassword) {
+      PASSWORDCLASSLIST.add('connexionCorrect')
+      DEVNAMECLASSLIST.add('connexionCorrect')
+    } else {
+      PASSWORDCLASSLIST.remove('connexionCorrect')
+      DEVNAMECLASSLIST.remove('connexionCorrect')
+    }
   }
 
   render () {
@@ -39,6 +48,7 @@ class Connexion extends Component {
           <h1>Project Manager</h1>
           <input
             name="pseudo"
+            id="pseudoinput"
             type='text'
             value={this.state.pseudo}
             onChange={this.handleChange}
@@ -50,6 +60,7 @@ class Connexion extends Component {
             marginTop: '15px'
           }}
           name="password"
+          id="passwordinput"
           type='password'
           value={this.state.password}
           onChange={this.handleChange}
@@ -58,7 +69,7 @@ class Connexion extends Component {
 
           {
             this.state.password===this.state.correctPassword ? (
-              <button type="submit">Go</button>
+              <button id="gobtn" type="submit">Go</button>
             ) : (
               <div />
             )

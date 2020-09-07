@@ -6,7 +6,6 @@ import Header from './components/project-manager/Header'
 import Admin from './components/project-manager/Admin'
 import Card from './components/project-manager/Card'
 import BienvenueAdmin from './components/project-manager/BienvenueAdmin'
-import TodoList from './components/todo-list/TodoList'
 import Filters from './components/project-manager/Filters'
 
 // Firebase
@@ -21,8 +20,6 @@ class App extends Component {
     nState: false,
     toggleAdminPartInner: 'Show',
     projects : {},
-    toggleDisplayTDL: false,
-    toggleDisplayTDLInner: 'Show',
     activeFilter: '',
     adminList: '',
     categories: ''
@@ -58,11 +55,6 @@ class App extends Component {
     const projects = { ...this.state.projects }
     projects[key] = newProject
     this.setState({ projects })
-  }
-
-  runMailScript = () => {
-    window.open("file:///C:\Users\simon\OneDrive\Documents\PROGRAMMATION\PROJETS-ETE2020\CP_ELECTRONJS\project-manager\project-manager\run.bat")
-    console.log('opened')
   }
 
   deleteProject = key => {
@@ -189,25 +181,6 @@ class App extends Component {
             <div className="bvnadmin">
               <BienvenueAdmin />
             </div>
-          ) : (
-            <div />
-          )
-        }
-
-        <button
-          className="toggleButton"
-          onClick={() => this.toggleTDLPart()}
-          style={{
-            backgroundColor: '#3498DB',
-            border: '1px solid black',
-          }}
-        >
-          { this.state.toggleDisplayTDLInner } TodoList
-        </button>
-        
-        {
-          this.state.toggleDisplayTDL ? (
-            <TodoList />
           ) : (
             <div />
           )
