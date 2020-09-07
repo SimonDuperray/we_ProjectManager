@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 
-class Connexion extends React.Component {
+import base from '../../base'
+
+class Connexion extends Component {
   state = {
     pseudo: '',
     password: '',
+    correctPassword: '',
     goToApp: false
+  }
+
+  componentDidMount() {
+    this.ref = base.syncState('/StockedData/password', {
+      context: this,
+      state: "correctPassword"
+    })
   }
 
   goToApp = event => {
@@ -22,9 +32,6 @@ class Connexion extends React.Component {
     if (this.state.goToApp) {
       return <Redirect push to={`/pseudo/${this.state.pseudo}`} />
     }
-
-    // to store on firebase
-    const PASSWORD = "JaX2hLyt"
 
     return (
       <div className='connexionBox'>
@@ -50,7 +57,7 @@ class Connexion extends React.Component {
           required />
 
           {
-            this.state.password===PASSWORD ? (
+            this.state.password===this.state.correctPassword ? (
               <button type="submit">Go</button>
             ) : (
               <div />

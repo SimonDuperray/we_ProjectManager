@@ -9,7 +9,7 @@ import NotFound from './components/NotFound'
 import * as serviceWorker from './serviceWorker'
 
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Switch
 } from 'react-router-dom'
@@ -24,9 +24,9 @@ const Root = () => (
   // </Router>
   <Router>
     <Switch>
-      <Route exact path='/' render={props => <Connexion />} />
-      <Route path='/pseudo/:pseudo' render={props => <App />} />
-      <Route render={props => <NotFound />} />
+      <Route exact path='/' component={Connexion} />
+      <Route exact path='/pseudo/:pseudo' component={App} />
+      <Route component={NotFound} />
     </Switch>
   </Router>
 )

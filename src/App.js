@@ -10,7 +10,6 @@ import BienvenueAdmin from './components/project-manager/BienvenueAdmin'
 
 // Firebase
 import base from './base'
-import adminlist from './components/adminlist'
 
 localStorage.setItem('listFilters', [])
 
@@ -23,13 +22,18 @@ class App extends Component {
     projects : {},
     toggleDisplayTDL: false,
     toggleDisplayTDLInner: 'Show',
-    activeFilter: ''
+    activeFilter: '',
+    adminList: ''
   }
 
   componentDidMount() {
     this.ref = base.syncState(`/${this.state.pseudo}/projects`, {
       context: this,
       state: 'projects'
+    })
+    this.ref = base.syncState('/StockedData/adminList', {
+      context: this,
+      state: "adminList"
     })
   }
 
@@ -166,7 +170,8 @@ class App extends Component {
           cpt={this.state.cpt}
         />
         {
-          adminlist.includes(this.state.pseudo) ? (
+          // adminlist.includes(this.state.pseudo) ? (
+            this.state.adminList === this.state.pseudo ? (
             <div className="bvnadmin">
               <BienvenueAdmin />
             </div>
@@ -174,6 +179,14 @@ class App extends Component {
             <div />
           )
         }
+
+        <button
+          onClick={ () => {
+            console.log(this.state.adminList)
+          }}
+        >
+          Print adminlist
+        </button>
 
         {/* <button
           className="toggleButton"
