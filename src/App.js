@@ -6,7 +6,8 @@ import Header from './components/project-manager/Header'
 import Admin from './components/project-manager/Admin'
 import Card from './components/project-manager/Card'
 import BienvenueAdmin from './components/project-manager/BienvenueAdmin'
-// import TodoList from './components/todo-list/TodoList'
+import TodoList from './components/todo-list/TodoList'
+import Filters from './components/project-manager/Filters'
 
 // Firebase
 import base from './base'
@@ -23,7 +24,8 @@ class App extends Component {
     toggleDisplayTDL: false,
     toggleDisplayTDLInner: 'Show',
     activeFilter: '',
-    adminList: ''
+    adminList: '',
+    categories: ''
   }
 
   componentDidMount() {
@@ -34,6 +36,10 @@ class App extends Component {
     this.ref = base.syncState(`/${this.state.pseudo}/projects`, {
       context: this,
       state: 'projects'
+    })
+    this.ref = base.syncState('/StockedData/categories', {
+      context: this,
+      state: 'categories'
     })
   }
 
@@ -87,20 +93,28 @@ class App extends Component {
     CONFIRMATION_CODE = ''
   }
 
+  // optimize toggleAdminPart & toggleTDLPart with event target name
+
   toggleAdminPart = () => {
-    if(this.state.toggleAdminPartInner==="Show") {
-      this.state.toggleAdminPartInner = "Hide"
-    } else {
-      this.state.toggleAdminPartInner = "Show"
+    switch(true) {
+      case this.state.toggleAdminPartInner==="Show":
+        this.state.toggleAdminPartInner="Hide"
+        break
+      case this.state.toggleAdminPartInner!=="Show":
+        this.state.toggleAdminPartInner="Show"
+        break
     }
-    this.setState({nState: !this.state.nState})
+    this.setState({ nState: !this.state.nState })
   }
 
   toggleTDLPart = () => {
-    if(this.state.toggleDisplayTDLInner==="Show"){
-      this.state.toggleDisplayTDLInner="Hide"
-    } else {
-      this.state.toggleDisplayTDLInner="Show"
+    switch(true) {
+      case this.state.toggleDisplayTDLInner==="Show":
+        this.state.toggleDisplayTDLInner = "Hide"
+        break
+      case this.state.toggleDisplayTDLInner!=="Show":
+        this.state.toggleDisplayTDLInner = "Show"
+        break
     }
     this.setState({ toggleDisplayTDL: !this.state.toggleDisplayTDL })
   }
@@ -157,12 +171,13 @@ class App extends Component {
   }
 
   render () {
-    const category = this.props.catagories
     const cards = Object.keys(this.state.projects)
       .map(key => <Card key={key} details={this.state.projects[key]}/>)
       // update cpt
     this.state.cpt = cards.length
-  
+
+    const CATEGORIES = Object.keys(this.state.categories)
+
     return (
       <div className='box'>
         <Header 
@@ -179,7 +194,7 @@ class App extends Component {
           )
         }
 
-        {/* <button
+        <button
           className="toggleButton"
           onClick={() => this.toggleTDLPart()}
           style={{
@@ -196,72 +211,9 @@ class App extends Component {
           ) : (
             <div />
           )
-        } */}
+        }
 
-        {/* transform to component */}
-
-        {/* <div className="filtersRenderCards rows">
-          <div className="filterTitle">
-            <h3 id="noMgTitleFilters">Filters</h3>
-          </div>
-          <div className="flexRendering">
-            <div className="row">
-              <input 
-                className="checkboxes"
-                name="IA"
-                type="checkbox"
-                ref="IA"
-                onChange={ this.filter }
-              />
-              &nbsp;
-              <label for="IA">IA</label>
-            </div>
-            <div className="row">
-              <input 
-                className="checkboxes"
-                name="WebSite-App"
-                type="checkbox"
-                ref="WebSite-App"
-                onChange={ this.filter }
-              />
-              &nbsp;
-              <label for="WebSite-App">WebSite-App</label>
-            </div>
-            <div className="row">
-              <input 
-                className="checkboxes"
-                name="Software"
-                type="checkbox"
-                ref="Software"
-                onChange={ this.filter }
-              />
-              &nbsp;
-              <label for="Software">Software</label>
-            </div>
-            <div className="row">
-              <input 
-                className="checkboxes"
-                name="AppMobile"
-                type="checkbox"
-                ref="AppMobile"
-                onChange={ this.filter }
-              />
-              &nbsp;
-              <label for="AppMobile">AppMobile</label>
-            </div>
-            <div className="row">
-              <input 
-                className="checkboxes"
-                name="Autres"
-                type="checkbox"
-                ref="Autres"
-                onChange={ this.filter }
-              />
-              &nbsp;
-              <label for="Autres">Autres</label>
-            </div>
-          </div>
-        </div> */}
+        <Filters />
         
         {
           <div className="cards">

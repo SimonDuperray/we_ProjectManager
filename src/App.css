@@ -118,11 +118,18 @@ div.bvnadmin {
 	background-color: #EAEDED;
 	box-shadow: 3px 3px 7px #85929E;
 	border-radius: 15px;
-	padding-bottom: 10px;
+	padding-bottom: 1vh;
+	/* width: auto;
+	margin-left: 2vw;
+	margin-right: 5vw; */
+	flex: 0 1 500px;
+	text-align: center;
+
 }
 .filterTitle {
 	text-align: center;
 	font-family: 'Baloo Tamma 2', sans-serif;
+	text-align: center;
 }
 #noMgTitleFilters {
 	margin: 5px 20vh;
@@ -136,17 +143,9 @@ div.bvnadmin {
 	display: flex;
 	justify-content: space-around;
 }
-#filterBtnContainer {
-	text-align: center;
-}
-#filterBtn {
-	background-color: #3498DB;
-	padding: 7px;
-	font-size: 15px;
-	letter-spacing: 2px;
-	border-radius: 5px;
-	border: 1px solid black;
-}
+/* ----------------------------
+	Cards
+---------------------------- */
 div.cards {
 	margin-top: 10px;
 	display: flex;
