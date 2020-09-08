@@ -38,10 +38,10 @@ class App extends Component {
       context: this,
       state: 'projects'
     })
-    this.ref = base.syncState('/StockedData/categories', {
-      context: this,
-      state: 'categories'
-    })
+    // this.ref = base.syncState('/StockedData/categories', {
+    //   context: this,
+    //   state: 'categories'
+    // })
   }
 
   componentWillUnmount() {
@@ -62,6 +62,7 @@ class App extends Component {
   }
 
   deleteProject = key => {
+    // essayer d'opti
     let isCorrect = false
     let CONFIRMATION_CODE = Math.random().toString(36)
     let PROJECT_DELETED = ''
@@ -157,8 +158,6 @@ class App extends Component {
       .map(key => <Card key={key} details={this.state.projects[key]}/>)
     
     this.state.cpt = cards.length
-
-    const CATEGORIES = Object.keys(this.state.categories)
 
     return (
       <div className='box'>

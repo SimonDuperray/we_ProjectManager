@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
-import categorieslist from '../categorieslist'
+import base from '../../base'
+import categoriesList from '../categorieslist'
 
 var fs = require('fs')
 
@@ -12,6 +13,13 @@ class AddProject extends Component {
         description: '',
         notes: '',
         pattern: ''
+    }
+
+    componentDidMount() {
+        this.ref = base.syncState('/StockedData/categories', {
+            context: this,
+            state: 'categories'
+        })
     }
 
     createPatternFolderProject = () => {
@@ -40,7 +48,7 @@ class AddProject extends Component {
         if(project.nom) {
             if(project.description) {
                 if(project.categories) {
-                    if(categorieslist.includes(project.categories)) {
+                    if(categoriesList.includes(project.categories)) {
                         if(this.refs.isPattern.checked){
                             this.setState({ pattern: true })
                             // this.createPatternFolderProject()
@@ -55,10 +63,10 @@ class AddProject extends Component {
                         this.refs.isPattern.checked = false
                         this.setState({ ...project })    
                     } else {
-                        alert('La catégorie renseignée ne fait pas partie des catégories disponibles: ' + categorieslist)
+                        alert('La catégorie renseignée ne fait pas partie des catégories disponibles: ' + categoriesList)
                     }
                 } else {
-                    alert('Indiquez une catégorie de project parmis: ' + categorieslist)
+                    alert('Indiquez une catégorie de project parmis: ' + categoriesList)
                 }
             } else {
                 alert('Donnez une description, même courte à votre nouveau projet!')
