@@ -9,8 +9,9 @@
 
 ## :page_facing_up: General info
 Project Manager is a React webapp where I can stock all my projects ideas to organize and prioritize my work. It's a kind of 'To Do List' dedicated for each project.<br><br>
-[![cpaddtask.png](https://i.postimg.cc/Y2bL3v4M/cpaddtask.png)](https://postimg.cc/z3HfDXSc)
+[![cpaddtask.png](https://i.postimg.cc/qRgHHDGm/cpaddtask.png)](https://postimg.cc/PpGRm49Z)
 <br><br>
+Due to a database problem, I can't publish screen of all standed projects.
 	
 ## :computer: Technologies
 Chrono_Background is created with:
