@@ -1,14 +1,23 @@
-## mail
-project.manager.bot.simond@gmail.com
-# Filtres
--> Catégorie
-    * Web App
-    * Web Site
-    * IA
-    * Autres
+# Project Manager
 
-# TODO BEFORE PUBLISH FIRST STABLE VERSION
--> 
+[-> Repository](https://github.com/SimonDuperray/we_ProjectManager)
 
+## :clipboard: Table of contents
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Setup](#setup)
 
-run php script when clicked on delete project
+## :page_facing_up: General info
+Project Manager is a React webapp where I can stock all my projects ideas to organize and prioritize my work. It's a kind of 'To Do List' dedicated for each project.
+	
+## :computer: Technologies
+Chrono_Background is created with:
+* JavaScript
+* React.JS
+* Firebase
+	
+## :cd: Setup
+Clone these files anywhere and browse the code.
+```batch
+$ git clone https://github.com/SimonDuperray/we_ProjectManager.git
+```
