@@ -14,7 +14,7 @@ Project Manager is a React webapp where I can stock all my projects ideas to org
 Due to a database problem, I can't publish screen of all standed projects.
 	
 ## :computer: Technologies
-Chrono_Background is created with:
+Project Manager is created with:
 * JavaScript
 * React.JS
 * Firebase
